@@ -20,6 +20,10 @@
                     <label for="password" class="form-label">Mot de passe :</label>
                     <input type="password" class="form-control" id="password" required>
                 </div>
+                <div class="mb-3">
+                    <label for="password1" class="form-label">Confirmez votre mot de passe :</label>
+                    <input type="password1" class="form-control" id="password1" required>
+                </div>
                 <button type="submit" class="btn btn-primary">Valider</button>
             </form>
             </div>
