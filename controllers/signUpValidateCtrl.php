@@ -19,11 +19,11 @@ if($user){
 }
 
 
-$isValidated = User::validate('email@mail.com');
+// $isValidated = User::validate('email@mail.com');
 
 
 
-var_dump($isValidated);
+// var_dump($isValidated);
 
 
 

@@ -1,5 +1,5 @@
 <?php 
 
 
-header('location: /controllers/home-controller.php');
+header('location: /controllers/homeCtrl.php');
 die;

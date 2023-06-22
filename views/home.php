@@ -1,8 +1,11 @@
 <!-- page accueil -->
 <main>
-    <div class="container">
+    <div class="container-fluid">
+        <div>
+            <!-- image de présentation OU image en background avec "l'important" sur le côté droit -->
+        </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <h1>Qui sommes-nous ?</h1>
                 <p>Le but de ce projet est de vous permettre de proposer ou de contribuer à des projets selon vos compétences.</p>
                 <p>Inscrivez-vous, visitez notre forum et postulez sur une offre ou créez la votre pour commencer à recevoir des demandes d'autres membres pour rejoindre votre projet !</p>
@@ -15,11 +18,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <button type="button" class="btn btn-outline-primary btn-sign"><a href="http://"></a> S'inscrire / Se connecter</button>
+            <div class="col-md-2">
+            <a href="/controllers/signUpCtrl.php"><button type="button" class="btn btn-outline-primary btn-sign"> S'inscrire</button></a>
             </div>
-            <div class="col-md-6">
-                <button type="button" class="btn btn-outline-primary btn-forum"><a href="http://"></a> Voir le forum</button>
+            <div class="col-md-2">
+            <a href="/controllers/signInCtrl.php"><button type="button" class="btn btn-outline-primary btn-sign"> Se connecter</button></a>
+            </div>
+            <div class="col-md-2">
+                <a href="/controllers/forumCtrl.php"><button type="button" class="btn btn-outline-primary btn-forum"> Voir le forum</button></a>
             </div>
         </div>
     </div>
