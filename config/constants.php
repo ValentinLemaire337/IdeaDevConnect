@@ -1,6 +1,6 @@
 <?php 
 
-define("DSN", 'mysql:host=localhost;dbname=Ideadevconnect');
+define("DSN", 'mysql:host=localhost;dbname=ideadevconnect');
 define("USER", 'valentinlemaire');
 define("PWD", '5)XCnBIo-1hv_bG@');
 

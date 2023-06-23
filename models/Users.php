@@ -10,6 +10,7 @@ class User{
     private string $mail;
     private string $birthdate;
     // private string $image;
+    private string $password;
     private string $created_at;
     private string $updated_at;
     private string $validated_at;
@@ -36,6 +37,9 @@ class User{
     // public function get_image(){
         // return $this->image;
     // }
+    public function get_password(){
+        return $this->password;
+    }
     public function get_created_at(){
         return $this->created_at;
     }
@@ -70,6 +74,9 @@ class User{
     // public function set_image(){
     //     $this->image = $image;
     // }
+    public function set_password(string $password){
+        $this->password = $password;
+    }
     public function set_created_at(string $created_at){
         $this->created_at = $created_at;
     }
@@ -86,10 +93,29 @@ class User{
 
         // METHODES
 
-    // méthode d'ajout d'utilisateur dans la BDD
+    // méthode d'ajout d'utilisateur dans la BDD        !!!! RESTE IMAGE A VOIR DANS UNE AUTRE METHODE !!!!
 
-    public static function add(){
+    public function add(){
+        $db = connect();
+        $sql = ('INSERT INTO `users` (`firstname`, `lastname`, `birthdate`, `mail`, `password`)
+        VALUES (:firstname, :lastname, :birthdate, :phone, :mail)');
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':lastname', $this->lastname);
+        $sth->bindValue(':firstname', $this->firstname);
+        $sth->bindValue(':birthdate', $this->birthdate);
+        $sth->bindValue(':mail', $this->mail);
+        $sth->bindValue(':password', $this->password);
+        return $sth->execute();
+    }
 
+    public static function isMailExist($mail)
+    {
+        $db = connect();
+        $sql = ('SELECT `mail` FROM `users` WHERE `mail`= :mail;');       //:mail = marqueur nom
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':mail', $mail);
+        $sth->execute();
+        return $sth->fetch();
     }
 
     // méthode static pour update le validated_at dans la BDD
@@ -99,7 +125,7 @@ class User{
     //     $sql = 'UPDATE `users` SET `validated_at` = NOW() WHERE `users`.`email` = :email AND `validated_at` IS NULL;';
     //     $sth = $db->prepare($sql);
     //     $sth->bindValue(':email', $email, PDO::PARAM_STR);
-    //     // $sth->bindValue(':validated_at', )
+    //     $sth->bindValue(':validated_at', )
     //     $sth->execute();
     //     if($sth->execute()){
     //         return ($sth->rowCount() > 0) ? true : false;

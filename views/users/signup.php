@@ -4,12 +4,12 @@
             <p>Inscrivez-vous :</p>
             <form>
             <div class="mb-3">
-                    <label for="email" class="form-label">Nom :</label>
-                    <input type="email" class="form-control" id="email" required>
+                    <label for="fistname" class="form-label">Nom :</label>
+                    <input type="text" class="form-control" id="fistname" name="fistname" required>
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Prénom :</label>
-                    <input type="email" class="form-control" id="email">
+                    <label for="lastname" class="form-label">Prénom :</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Adresse mail :</label>
