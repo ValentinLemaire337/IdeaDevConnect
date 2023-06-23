@@ -10,6 +10,7 @@ class User{
     private string $mail;
     private string $birthdate;
     // private string $image;
+    private int $role;
     private string $password;
     private string $created_at;
     private string $updated_at;
@@ -37,6 +38,9 @@ class User{
     // public function get_image(){
         // return $this->image;
     // }
+    public function get_role(){
+        return $this->role;
+    }
     public function get_password(){
         return $this->password;
     }
@@ -77,6 +81,9 @@ class User{
     public function set_password(string $password){
         $this->password = $password;
     }
+    public function set_role(string $role){
+        $this->role = $role;
+    }
     public function set_created_at(string $created_at){
         $this->created_at = $created_at;
     }
@@ -97,8 +104,8 @@ class User{
 
     public function add(){
         $db = connect();
-        $sql = ('INSERT INTO `users` (`firstname`, `lastname`, `birthdate`, `mail`, `password`)
-        VALUES (:firstname, :lastname, :birthdate, :phone, :mail)');
+        $sql = ('INSERT INTO `users` (`firstname`, `lastname`, `birthdate`, `mail`, `password`, ` created_at`)
+        VALUES (:firstname, :lastname, :birthdate, :phone, :mail, NOW())');
         $sth = $db->prepare($sql);
         $sth->bindValue(':lastname', $this->lastname);
         $sth->bindValue(':firstname', $this->firstname);
@@ -108,30 +115,69 @@ class User{
         return $sth->execute();
     }
 
+
+    // méthode de vérification de mail unique en BDD
+
     public static function isMailExist($mail)
     {
         $db = connect();
-        $sql = ('SELECT `mail` FROM `users` WHERE `mail`= :mail;');       //:mail = marqueur nom
+        $sql = 'SELECT `mail` FROM `users` WHERE `mail`= :mail;';       //:mail = marqueur nom
         $sth = $db->prepare($sql);
         $sth->bindValue(':mail', $mail);
         $sth->execute();
         return $sth->fetch();
     }
 
-    public function get(){
+    // méthode pour afficher toutes les infos d'un seul user
 
+    public static function get(int $id){
+        $db = connect();
+        $sql = 'SELECT * FROM `users` WHERE `id` = :id ;';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        $sth->execute();
+        return $sth->fetch();
     }
+
+    // méthode pour afficher tout les users
 
     public function getAll(){
-
+        $db = connect();
+        $sql = 'SELECT `firstname`, `lastname`, `birthdate`, `mail`, `created_at`
+                FROM `users`;';
+        $sth = $db->query($sql);
+        $sth->fetchAll();
     }
+
+    //méthode pour update les infos users
 
     public function update(){
-
+        $db = connect();
+        $sql = 'UPDATE `users`
+                SET `firstname` = :firstname,
+                `lastname` = :lastname,
+                `birthdate` = :birthdate,
+                `mail` = :mail,
+                `updated_at` = NOW()
+                WHERE `id` = :id
+                ';                      // ajout updated_at = now()
+        $sth = $db->prepare($sql);
+        $sth->bindValue('firstname', $this->firstname);
+        $sth->bindValue(':lastname', $this->lastname);
+        $sth->bindValue(':birthdate', $this->birthdate);
+        $sth->bindValue(':mail', $this->mail);
+        $sth->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $sth->execute();
     }
 
+    //méthode pour delete un utilisateur
+    
     public function delete(){
-
+        $db = connect();
+        $sql = 'DELETE FROM `users` WHERE `id` = :id;';     // + add date de delete
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $sth->execute();
     }
 
     // méthode static pour update le validated_at dans la BDD    !!!! LORS DE LA RECEPTION DE LA VALIDATION USER !!!
