@@ -5,7 +5,7 @@ class Team{
     private int $id;
     private string $teamName;
     private string $created_at;
-    private int $size;
+
 
     // GETTER
 
@@ -17,9 +17,6 @@ class Team{
     }
     public function get_created_at(){
         return $this->created_at;
-    }
-    public function get_size(){
-        return $this->size;
     }
 
 
@@ -34,9 +31,7 @@ class Team{
     public function set_created_at(string $created_at){
         $this->created_at = $created_at;
     }
-    public function set_size(int $size){
-        $this->size = $size;
-    }
+
 
     // METHODES
 
@@ -45,11 +40,10 @@ class Team{
     public function add()
     {
         $db = connect();
-        $sql = ('INSERT INTO `teams` (`teamName`, `size`)
-            VALUES (:teamName, :size)');
+        $sql = 'INSERT INTO `teams` (`teamName`)
+            VALUES :teamName,';
         $sth = $db->prepare($sql);
         $sth->bindValue(':lastname', $this->teamName);
-        $sth->bindValue(':firstname', $this->size);
         return $sth->execute();
     }
 

@@ -118,7 +118,23 @@ class User{
         return $sth->fetch();
     }
 
-    // méthode static pour update le validated_at dans la BDD
+    public function get(){
+
+    }
+
+    public function getAll(){
+
+    }
+
+    public function update(){
+
+    }
+
+    public function delete(){
+
+    }
+
+    // méthode static pour update le validated_at dans la BDD    !!!! LORS DE LA RECEPTION DE LA VALIDATION USER !!!
 
     // public static function validate(){
     //     $db = connect();
