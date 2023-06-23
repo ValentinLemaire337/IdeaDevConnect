@@ -37,12 +37,12 @@ class User{
     }
     // public function get_image(){
         // return $this->image;
-    // }
-    public function get_role(){
-        return $this->role;
-    }
+    // }  
     public function get_password(){
         return $this->password;
+    }
+    public function get_role(){
+        return $this->role;
     }
     public function get_created_at(){
         return $this->created_at;
@@ -171,7 +171,7 @@ class User{
     }
 
     //méthode pour delete un utilisateur
-    
+
     public function delete(){
         $db = connect();
         $sql = 'DELETE FROM `users` WHERE `id` = :id;';     // + add date de delete
@@ -180,14 +180,13 @@ class User{
         $sth->execute();
     }
 
-    // méthode static pour update le validated_at dans la BDD    !!!! LORS DE LA RECEPTION DE LA VALIDATION USER !!!
+    //méthode static pour update le validated_at dans la BDD    !!!! LORS DE LA RECEPTION DE LA VALIDATION USER !!!
 
     // public static function validate(){
     //     $db = connect();
     //     $sql = 'UPDATE `users` SET `validated_at` = NOW() WHERE `users`.`email` = :email AND `validated_at` IS NULL;';
     //     $sth = $db->prepare($sql);
     //     $sth->bindValue(':email', $email, PDO::PARAM_STR);
-    //     $sth->bindValue(':validated_at', )
     //     $sth->execute();
     //     if($sth->execute()){
     //         return ($sth->rowCount() > 0) ? true : false;
