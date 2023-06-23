@@ -1,6 +1,5 @@
 <?php
 
-    require __DIR__ . '/../config/default.php';
 
 
     include __DIR__ . '/../views/templates/header.php';
