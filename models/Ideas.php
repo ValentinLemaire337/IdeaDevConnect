@@ -98,4 +98,27 @@ class Ideas{
     }
 
 
+    // ajouter methode validated_at
+
+    public function update(int $id){
+        $db = connect();
+        $sql = 'UPDATE `ideas`
+                SET `name` = :name,
+                `description` = :description,
+                -- `image` = :image,
+                `updated_at` = NOW()
+                WHERE `id` = :id';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':name', $this->name);
+        $sth->bindValue(':description', $this->description);
+        // $sth->bindValue(':image', $this->image);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        return $sth->execute();
+    }
+
+
+    // ajouter methode deleted_at
+
+    
+
 }
