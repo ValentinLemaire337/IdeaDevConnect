@@ -104,6 +104,14 @@ class Team{
         $sth->execute();
     }
 
+    public function delete(int $id){
+        $db = connect();
+        $sql = 'DELETE FROM `teams` WHERE `id` = :id;';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        $sth->execute();
+    }
+
     
 
 

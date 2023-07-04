@@ -151,7 +151,7 @@ class User{
 
     //méthode pour update les infos users
 
-    public function update(){
+    public function update(int $id){
         $db = connect();
         $sql = 'UPDATE `users`
                 SET `firstname` = :firstname,
@@ -166,17 +166,17 @@ class User{
         $sth->bindValue(':lastname', $this->lastname);
         $sth->bindValue(':birthdate', $this->birthdate);
         $sth->bindValue(':mail', $this->mail);
-        $sth->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();
     }
 
     //méthode pour delete un utilisateur
 
-    public function delete(){
+    public function delete(int $id){
         $db = connect();
         $sql = 'DELETE FROM `users` WHERE `id` = :id;';     // + add date de delete
         $sth = $db->prepare($sql);
-        $sth->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();
     }
 
