@@ -1,5 +1,7 @@
 <?php 
 
+require_once __DIR__ . '/../helpers/connect.php';
+
 class Ideas{
 
     private int $id;

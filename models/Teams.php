@@ -1,5 +1,7 @@
 <?php 
 
+require_once __DIR__ . '/../helpers/connect.php';
+
 class Team{
     
     private int $id;

@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . '/../helpers/connect.php';
 class Languages{
 
     private int $id;
@@ -24,4 +25,20 @@ class Languages{
     }
 
     // METHODES
+
+    public function add(){
+        $db = connect();
+        $sql = 'INSERT INTO `languages`(`name`)
+                VALUES (:name);';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':name', $this->name);
+        $sth->execute();
+    }
+
+    public function getAll(){
+        $db = connect();
+        $sql = 'SELECT `name` FROM `languages`;';
+        $sth = $db->query($sql);
+        return $sth->fetchAll();
+    }
 }
