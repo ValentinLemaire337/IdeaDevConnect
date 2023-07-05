@@ -1,6 +1,8 @@
 <?php
-// require __DIR__ . '/../config/default.php';
-require_once __DIR__ . '/../helpers/JWT.php';
+
+require_once __DIR__ . '/../config/constants.php';
+// require_once __DIR__ . '/../helpers/JWT.php';
+require_once __DIR__ . '/../models/Users.php';
 
 
 // $jwt = JWT::set($email);
@@ -10,8 +12,9 @@ try {
 
         // nettoyage et vérification lastname 
         $lastname = trim(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES));
+        var_dump($lastname);
         if (empty($lastname)) {
-            // message erreur
+            var_dump('pas de lastname');
         } else {
             $isOk = filter_var($lastname, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_NAME . '/')));
             if (!$isOk) {
@@ -21,8 +24,9 @@ try {
 
         // nettoyage et vérification firstname
         $firstname = trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES));
+        var_dump($firstname);
         if (empty($firstname)) {
-            // message erreur
+            var_dump('pas de firstname');
         } else {
             $isOk = filter_var($firstname, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_NAME . '/')));
             if (!$isOk) {
@@ -31,17 +35,17 @@ try {
         }
 
         $mail = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
-
+        var_dump($mail);
         //**** VERIFICATION ****/
         if (empty($mail)) {
-            // message erreur
+            var_dump('pas de mail');
         } else {
             $isOk = filter_var($mail, FILTER_VALIDATE_EMAIL);
             if (!$isOk) {
                 // message erreur
             }
             if (User::isMailExist($mail)) {
-                // message erreur le mail est deja utilisé
+                var_dump('le mail existe');
             }
         }
 
@@ -52,11 +56,16 @@ try {
         $user->set_mail($mail);
 
         $response = $user->add();
+        var_dump($user);
+
 
         if($response){
+            var_dump('add success');
             // message réussite user ajouté
         }
+        header('location: /controllers/forumCtrl.php');
     }
+
 } catch (\Throwable $th) {
     //throw $th;
 }

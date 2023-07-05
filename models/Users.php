@@ -8,7 +8,6 @@ class User{
     private string $firstname;
     private string $lastname;
     private string $mail;
-    private string $birthdate;
     // private string $image;
     private int $role;
     private string $password;
@@ -98,6 +97,7 @@ class User{
 
     public function add(){
         $db = connect();
+        die;
         $sql = ('INSERT INTO `users` (`firstname`, `lastname`, `mail`, `password`, ` created_at`)
         VALUES (:firstname, :lastname, :phone, :mail, NOW())');
         $sth = $db->prepare($sql);

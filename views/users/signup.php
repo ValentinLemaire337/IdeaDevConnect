@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row">
             <p>Inscrivez-vous :</p>
-            <form method="post">
+            <form method="post" novalidate>
                 <div class="mb-3">
-                    <label for="fistname" class="form-label">Nom :</label>
-                    <input type="text" class="form-control" id="fistname" name="fistname" required>
+                    <label for="firstname" class="form-label">Nom :</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname" required>
                 </div>
                 <div class="mb-3">
                     <label for="lastname" class="form-label">Prénom :</label>
@@ -18,11 +18,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Mot de passe :</label>
-                    <input type="password" class="form-control" id="password" required>
+                    <input type="password" class="form-control" id="password" name="password" required>
                 </div>
                 <div class="mb-3">
                     <label for="password1" class="form-label">Confirmez votre mot de passe :</label>
-                    <input type="password1" class="form-control" id="password1" required>
+                    <input type="password" class="form-control" id="password1" name="password1" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Valider</button>
             </form>
