@@ -32,9 +32,6 @@ class User{
     public function get_mail(){
         return $this->mail;
     }
-    public function get_birthdate(){
-        return $this->birthdate;
-    }
     // public function get_image(){
         // return $this->image;
     // }  
@@ -72,9 +69,6 @@ class User{
     public function set_mail(string $mail){
         $this->mail = $mail;
     }
-    public function set_birthdate(string $birthdate){
-        $this->birthdate = $birthdate;
-    }
     // public function set_image(){
     //     $this->image = $image;
     // }
@@ -104,12 +98,11 @@ class User{
 
     public function add(){
         $db = connect();
-        $sql = ('INSERT INTO `users` (`firstname`, `lastname`, `birthdate`, `mail`, `password`, ` created_at`)
-        VALUES (:firstname, :lastname, :birthdate, :phone, :mail, NOW())');
+        $sql = ('INSERT INTO `users` (`firstname`, `lastname`, `mail`, `password`, ` created_at`)
+        VALUES (:firstname, :lastname, :phone, :mail, NOW())');
         $sth = $db->prepare($sql);
         $sth->bindValue(':lastname', $this->lastname);
         $sth->bindValue(':firstname', $this->firstname);
-        $sth->bindValue(':birthdate', $this->birthdate);
         $sth->bindValue(':mail', $this->mail);
         $sth->bindValue(':password', $this->password);
         return $sth->execute();
@@ -143,7 +136,7 @@ class User{
 
     public function getAll(){
         $db = connect();
-        $sql = 'SELECT `firstname`, `lastname`, `birthdate`, `mail`, `created_at`
+        $sql = 'SELECT `firstname`, `lastname`, `mail`, `created_at`
                 FROM `users`;';
         $sth = $db->query($sql);
         $sth->fetchAll();
@@ -156,7 +149,6 @@ class User{
         $sql = 'UPDATE `users`
                 SET `firstname` = :firstname,
                 `lastname` = :lastname,
-                `birthdate` = :birthdate,
                 `mail` = :mail,
                 `updated_at` = NOW()
                 WHERE `id` = :id
@@ -164,7 +156,6 @@ class User{
         $sth = $db->prepare($sql);
         $sth->bindValue('firstname', $this->firstname);
         $sth->bindValue(':lastname', $this->lastname);
-        $sth->bindValue(':birthdate', $this->birthdate);
         $sth->bindValue(':mail', $this->mail);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();
