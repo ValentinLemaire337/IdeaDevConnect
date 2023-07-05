@@ -1,11 +1,11 @@
 <!-- page accueil -->
 <main>
-    <div class="container-fluid">
+    <div class="container-fluid align-middle">
         <div>
             <!-- image de présentation OU image en background avec "l'important" sur le côté droit -->
         </div>
-        <div class="row">
-            <div class="col-md-6">
+        <div class="row d-flex justify-content-center ">
+            <div class="col-6">
                 <h1>Qui sommes-nous ?</h1>
                 <p>Le but de ce projet est de vous permettre de proposer ou de contribuer à des projets selon vos compétences.</p>
                 <p>Inscrivez-vous, visitez notre forum et postulez sur une offre ou créez la votre pour commencer à recevoir des demandes d'autres membres pour rejoindre votre projet !</p>
@@ -17,7 +17,7 @@
                 </p>
             </div>
         </div>
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             <div class="col-md-2">
             <a href="/controllers/signUpCtrl.php"><button type="button" class="btn btn-outline-primary btn-sign"> S'inscrire</button></a>
             </div>
