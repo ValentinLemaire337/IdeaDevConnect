@@ -59,6 +59,8 @@ try {
         if ($password == $password1) {
             $password = password_verify($password, REGEX_PWD);
             $passwordHashed = password_hash($password, PASSWORD_BCRYPT);
+        }else{
+            $errorPassword = MESSAGES['Mot de passe invalide'];
         }
 
 
@@ -69,18 +71,17 @@ try {
             $user->set_lastname($lastname);
             $user->set_mail($mail);
             $user->set_password($passwordHashed);
-
             $response = $user->add();
             if ($response) {
-                $successAdd = MESSAGES['SUCCESS_MESSAGE_USER'];
                 // message réussite user ajouté
+                $successAdd = MESSAGES['SUCCESS_MESSAGE_USER'];
+                header('location: /controllers/forumCtrl.php');
             }
         }else{
             $errorMsg = MESSAGES['ERROR_MESSAGE_ACCOUNT'];
         }
-        // header('location: /controllers/forumCtrl.php');}
     }
-} catch (\Throwable $th) {
+}catch (\Throwable $th) {
     //throw $th;
 }
 
