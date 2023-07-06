@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-2 mx-auto">
-                    <span class="input-group-text" id="basic-addon1"><a href="#"><button type="button" class="btn btn-light">Créer son projet</button></a></span>
+                    <span class="input-group-text" id="basic-addon1"><a href="/controllers/forum/addProjectCtrl.php"><button type="button" class="btn btn-light">Créer son projet</button></a></span>
                 </div>
             </div>
         </div>
