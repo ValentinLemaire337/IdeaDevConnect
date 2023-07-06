@@ -18,7 +18,7 @@ try {
         } else {
             $isOk = filter_var($lastname, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_NAME . '/')));
             if (!$isOk) {
-                // message erreur
+                $errorLastname = MESSAGES['ERROR_MESSAGE_LASTNAME'];
             }
         }
 
@@ -30,7 +30,7 @@ try {
         } else {
             $isOk = filter_var($firstname, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_NAME . '/')));
             if (!$isOk) {
-                // message erreur
+                $errorFirstname = MESSAGES['ERROR_MESSAGE_FIRSTNAME'];
             }
         }
 
@@ -39,10 +39,10 @@ try {
         //**** VERIFICATION ****/
         if (empty($mail)) {
             var_dump('pas de mail');
-        } else {
+        }else{
             $isOk = filter_var($mail, FILTER_VALIDATE_EMAIL);
             if (!$isOk) {
-                // message erreur
+                $errorMail = MESSAGES['ERROR_MESSAGE_MAIL'];
             }
             if (User::isMailExist($mail)) {
                 var_dump('le mail existe');
@@ -56,14 +56,14 @@ try {
         $user->set_mail($mail);
 
         $response = $user->add();
-        var_dump($user);
+        var_dump($response);
 
 
         if($response){
             var_dump('add success');
             // message réussite user ajouté
         }
-        header('location: /controllers/forumCtrl.php');
+        // header('location: /controllers/forumCtrl.php');
     }
 
 } catch (\Throwable $th) {
@@ -71,5 +71,5 @@ try {
 }
 
 include __DIR__ . '/../views/templates/header.php';
-include __DIR__ . '/../views/users/signup.php';
+    include __DIR__ . '/../views/users/signup.php';
 include __DIR__ . '/../views/templates/footer.php';

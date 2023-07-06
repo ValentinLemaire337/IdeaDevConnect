@@ -2,23 +2,27 @@
     <div class="container">
         <div class="row">
             <p>Inscrivez-vous :</p>
-            <form method="post" novalidate>
+            <form method="post">
                 <div class="mb-3">
                     <label for="firstname" class="form-label">Nom :</label>
                     <input type="text" class="form-control" id="firstname" name="firstname" required>
+                    <p><?= $errorFirstname ?? '' ?></p>
                 </div>
                 <div class="mb-3">
                     <label for="lastname" class="form-label">Prénom :</label>
                     <input type="text" class="form-control" id="lastname" name="lastname">
+                    <p><?= $errorLastname ?? '' ?></p>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Adresse mail :</label>
                     <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
                     <div id="emailHelp" class="form-text">Nous ne partagerons pas votre email.</div>
+                    <p><?= $errorMail ?? '' ?></p>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Mot de passe :</label>
                     <input type="password" class="form-control" id="password" name="password" required>
+                    
                 </div>
                 <div class="mb-3">
                     <label for="password1" class="form-label">Confirmez votre mot de passe :</label>

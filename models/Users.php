@@ -97,14 +97,13 @@ class User{
 
     public function add(){
         $db = connect();
-        die;
-        $sql = ('INSERT INTO `users` (`firstname`, `lastname`, `mail`, `password`, ` created_at`)
-        VALUES (:firstname, :lastname, :phone, :mail, NOW())');
+        $sql = 'INSERT INTO `users` (`firstname`, `lastname`, `mail`, `password`, `created_at`)
+        VALUES (:firstname, :lastname, :mail, :password, NOW());';
         $sth = $db->prepare($sql);
-        $sth->bindValue(':lastname', $this->lastname);
-        $sth->bindValue(':firstname', $this->firstname);
-        $sth->bindValue(':mail', $this->mail);
-        $sth->bindValue(':password', $this->password);
+        $sth->bindValue(':lastname', $this->get_lastname());
+        $sth->bindValue(':firstname', $this->get_firstname());
+        $sth->bindValue(':password', $this->get_password());
+        $sth->bindValue(':mail', $this->get_mail());
         return $sth->execute();
     }
 

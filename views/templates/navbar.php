@@ -22,6 +22,9 @@
                     <a class="nav-link" href="/controllers/profilCtrl.php">Profil</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/controllers/dashboardCtrl.php">Dashboard</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/controllers/forum.php">Déconnexion</a>
                 </li>
             </ul>

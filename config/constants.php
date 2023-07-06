@@ -22,5 +22,8 @@ define("MESSAGES", [
     'INFO_MESSAGE_USER' =>'Compte utilisateur en attente de validation',
     'SUCCESS_MESSAGE_USER' =>'Compte utilisateur créer',
     'ERROR_MESSAGE_USER' =>'Compte utilisateur introuvable',
-
+    'ERROR_MESSAGE_FIRSTNAME' => 'Prénom invalide',
+    'ERROR_MESSAGE_LASTNAME' => 'Nom invalide',
+    'ERROR_MESSAGE_MAIL' => 'Mail invalide',
+    'ERROR_MESSAGE_PASSWORD' => 'Mot de passe invalide'
 ]);
