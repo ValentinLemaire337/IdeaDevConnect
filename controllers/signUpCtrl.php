@@ -8,6 +8,7 @@ require_once __DIR__ . '/../models/Users.php';
 // $jwt = JWT::set($email);
 
 try {
+    $error = 0;
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // nettoyage et vérification lastname 
@@ -19,6 +20,7 @@ try {
             $isOk = filter_var($lastname, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_NAME . '/')));
             if (!$isOk) {
                 $errorLastname = MESSAGES['ERROR_MESSAGE_LASTNAME'];
+                $error = 1;
             }
         }
 
@@ -27,10 +29,12 @@ try {
         var_dump($firstname);
         if (empty($firstname)) {
             var_dump('pas de firstname');
+            $error = 1;
         } else {
             $isOk = filter_var($firstname, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_NAME . '/')));
             if (!$isOk) {
                 $errorFirstname = MESSAGES['ERROR_MESSAGE_FIRSTNAME'];
+                $error = 1;
             }
         }
 
@@ -39,7 +43,7 @@ try {
         //**** VERIFICATION ****/
         if (empty($mail)) {
             var_dump('pas de mail');
-        }else{
+        } else {
             $isOk = filter_var($mail, FILTER_VALIDATE_EMAIL);
             if (!$isOk) {
                 $errorMail = MESSAGES['ERROR_MESSAGE_MAIL'];
@@ -49,27 +53,37 @@ try {
             }
         }
 
-        // si 0 erreurs
-        $user = new User;
-        $user->set_firstname($firstname);
-        $user->set_lastname($lastname);
-        $user->set_mail($mail);
+        $password = filter_input(INPUT_POST, 'password', FILTER_DEFAULT);
+        $password1 = filter_input(INPUT_POST, 'password1', FILTER_DEFAULT);
 
-        $response = $user->add();
-        var_dump($response);
-
-
-        if($response){
-            var_dump('add success');
-            // message réussite user ajouté
+        if ($password == $password1) {
+            $password = password_verify($password, REGEX_PWD);
+            $passwordHashed = password_hash($password, PASSWORD_BCRYPT);
         }
-        // header('location: /controllers/forumCtrl.php');
-    }
 
+
+        // si 0 erreurs
+        if ($error == 0) {
+            $user = new User;
+            $user->set_firstname($firstname);
+            $user->set_lastname($lastname);
+            $user->set_mail($mail);
+            $user->set_password($passwordHashed);
+
+            $response = $user->add();
+            if ($response) {
+                $successAdd = MESSAGES['SUCCESS_MESSAGE_USER'];
+                // message réussite user ajouté
+            }
+        }else{
+            $errorMsg = MESSAGES['ERROR_MESSAGE_ACCOUNT'];
+        }
+        // header('location: /controllers/forumCtrl.php');}
+    }
 } catch (\Throwable $th) {
     //throw $th;
 }
 
 include __DIR__ . '/../views/templates/header.php';
-    include __DIR__ . '/../views/users/signup.php';
+include __DIR__ . '/../views/users/signup.php';
 include __DIR__ . '/../views/templates/footer.php';

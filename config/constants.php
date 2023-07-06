@@ -25,5 +25,6 @@ define("MESSAGES", [
     'ERROR_MESSAGE_FIRSTNAME' => 'Prénom invalide',
     'ERROR_MESSAGE_LASTNAME' => 'Nom invalide',
     'ERROR_MESSAGE_MAIL' => 'Mail invalide',
-    'ERROR_MESSAGE_PASSWORD' => 'Mot de passe invalide'
+    'ERROR_MESSAGE_PASSWORD' => 'Mot de passe invalide',
+    'ERROR_MESSAGE_ACCOUNT' => 'compte non créer'
 ]);
