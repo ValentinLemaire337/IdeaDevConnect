@@ -16,7 +16,7 @@
                         </div>
                         <div class="justify-content-end">
                             <h2>Titre du projet</h2>
-                            <p>truncated text</p>
+                            <p class="text-truncate">truncated text</p>
                         </div>
                         <a href="#"><button type="button" class="btn btn-light">Accèder au projet</button></a>
                     </div>

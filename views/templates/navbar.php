@@ -25,7 +25,7 @@
                     <a class="nav-link" href="/controllers/messageCtrl.php">Messagerie</a>  <!-- apparait quand user connecté -->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/controllers/dashboardCtrl.php">Dashboard</a>
+                    <a class="nav-link" href="/controllers/dashboard/dashboardCtrl.php">Dashboard</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/forum.php">Déconnexion</a>   <!-- apparait quand user connecté -->

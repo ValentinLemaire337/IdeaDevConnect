@@ -28,7 +28,7 @@
                     <label for="password1" class="form-label">Confirmez votre mot de passe :</label>
                     <input type="password" class="form-control" id="password1" name="password1" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Valider</button>
+                <button type="submit" class="btn btn-light">Valider</button>
             </form>
             <p>Vous avez déjà un compte ? Connectez vous <a href="/controllers/signInCtrl.php">ici</a></p>
         </div>
