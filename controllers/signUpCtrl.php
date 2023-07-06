@@ -47,23 +47,31 @@ try {
             $isOk = filter_var($mail, FILTER_VALIDATE_EMAIL);
             if (!$isOk) {
                 $errorMail = MESSAGES['ERROR_MESSAGE_MAIL'];
+                $error = 1;
             }
             if (User::isMailExist($mail)) {
                 var_dump('le mail existe');
+                $error = 1;
             }
         }
 
         $password = filter_input(INPUT_POST, 'password', FILTER_DEFAULT);
         $password1 = filter_input(INPUT_POST, 'password1', FILTER_DEFAULT);
 
+        var_dump($password);
+        var_dump($password1);
+
         if ($password == $password1) {
             $password = password_verify($password, REGEX_PWD);
             $passwordHashed = password_hash($password, PASSWORD_BCRYPT);
+            var_dump($passwordHashed);
         }else{
             $errorPassword = MESSAGES['Mot de passe invalide'];
+            var_dump('pb mdp');
+            $error = 1;
         }
 
-
+        var_dump($error);
         // si 0 erreurs
         if ($error == 0) {
             $user = new User;
