@@ -10,10 +10,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link" href="/controllers/signUpCtrl.php">Inscription</a> <!-- peut devenir "mon profil" -->
+                    <a class="nav-link" href="/controllers/signUpCtrl.php">Inscription</a> <!-- disparait quand user connecté -->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/controllers/signInCtrl.php">Connexion</a>
+                    <a class="nav-link" href="/controllers/signInCtrl.php">Connexion</a>    <!-- disparait quand user connecté -->
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/forumCtrl.php">Forum</a>
@@ -22,10 +22,13 @@
                     <a class="nav-link" href="/controllers/profilCtrl.php">Profil</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/controllers/messageCtrl.php">Messagerie</a>  <!-- apparait quand user connecté -->
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/controllers/dashboardCtrl.php">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/controllers/forum.php">Déconnexion</a>
+                    <a class="nav-link" href="/controllers/forum.php">Déconnexion</a>   <!-- apparait quand user connecté -->
                 </li>
             </ul>
         </div>

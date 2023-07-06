@@ -1,6 +1,6 @@
 <main>
     <div class="container">
-        <div class="row">
+        <div class="row col-6">
             <p>Inscrivez-vous :</p>
             <form method="post">
                 <div class="mb-3">
@@ -30,6 +30,10 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Valider</button>
             </form>
+            <p>Vous avez déjà un compte ? Connectez vous <a href="/controllers/signInCtrl.php">ici</a></p>
+        </div>
+        <div class="row col-6">
+
         </div>
     </div>
     </div>

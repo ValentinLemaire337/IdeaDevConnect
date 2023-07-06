@@ -10,9 +10,9 @@
                 <div class="border border-2 rounded mb-2">
                     <!--foreach pour chaque élément  -->
                     <div>
-                        <p>Author</p>
                         <div>
                             <img class="rounded img-thumbnail" src="" alt="">
+                            <p>Author</p>
                         </div>
                         <div class="justify-content-end">
                             <h2>Titre du projet</h2>

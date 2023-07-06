@@ -100,17 +100,17 @@ class User{
         $sql = 'INSERT INTO `users` (`firstname`, `lastname`, `mail`, `password`, `created_at`)
         VALUES (:firstname, :lastname, :mail, :password, NOW());';
         $sth = $db->prepare($sql);
-        $sth->bindValue(':lastname', $this->get_lastname());
-        $sth->bindValue(':firstname', $this->get_firstname());
-        $sth->bindValue(':password', $this->get_password());
-        $sth->bindValue(':mail', $this->get_mail());
+        $sth->bindValue(':lastname', $this->get_lastname(), PDO::PARAM_STR);
+        $sth->bindValue(':firstname', $this->get_firstname(), PDO::PARAM_STR);
+        $sth->bindValue(':password', $this->get_password(), PDO::PARAM_STR);
+        $sth->bindValue(':mail', $this->get_mail(), PDO::PARAM_STR);
         return $sth->execute();
     }
 
 
     // méthode de vérification de mail unique en BDD
 
-    public static function isMailExist($mail)
+    public static function isMailExist(string $mail)
     {
         $db = connect();
         $sql = 'SELECT `mail` FROM `users` WHERE `mail`= :mail;';       //:mail = marqueur nom
@@ -124,9 +124,18 @@ class User{
 
     public static function get(int $id){
         $db = connect();
-        $sql = 'SELECT * FROM `users` WHERE `id` = :id ;';
+        $sql = 'SELECT * FROM `users` WHERE `id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        $sth->execute();
+        return $sth->fetch();
+    }
+
+    public static function getByMail(string $mail){
+        $db = connect();
+        $sql = 'SELECT * FROM `users` WHERE `mail` = :email;';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':email', $mail, PDO::PARAM_STR);
         $sth->execute();
         return $sth->fetch();
     }
@@ -153,9 +162,9 @@ class User{
                 WHERE `id` = :id
                 ';                      // ajout updated_at = now()
         $sth = $db->prepare($sql);
-        $sth->bindValue('firstname', $this->firstname);
-        $sth->bindValue(':lastname', $this->lastname);
-        $sth->bindValue(':mail', $this->mail);
+        $sth->bindValue('firstname', $this->firstname, PDO::PARAM_STR);
+        $sth->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
+        $sth->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();
     }
