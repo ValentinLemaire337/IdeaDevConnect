@@ -8,7 +8,7 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto justify-content-end">
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/signUpCtrl.php">Inscription</a> <!-- peut devenir "mon profil" -->
                 </li>
