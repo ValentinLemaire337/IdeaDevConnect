@@ -33,5 +33,5 @@ try {
 
 
 include __DIR__ . '/../views/templates/header.php';
-include __DIR__ . '/../views/addTeam.php';
+include __DIR__ . '/../views/teams/addTeam.php';
 include __DIR__ . '/../views/templates/footer.php';

@@ -142,12 +142,12 @@ class User{
 
     // méthode pour afficher tout les users
 
-    public function getAll(){
+    public static function getAll(){
         $db = connect();
-        $sql = 'SELECT `firstname`, `lastname`, `mail`, `created_at`
+        $sql = 'SELECT *
                 FROM `users`;';
         $sth = $db->query($sql);
-        $sth->fetchAll();
+        return $sth->fetchAll();
     }
 
     //méthode pour update les infos users

@@ -79,7 +79,7 @@ class Teams{
         return $sth->fetch();
     }
 
-    public function getAll(){
+    public static function getAll(){
         $db = connect();
         $sql = 'SELECT * FROM `teams`;';
         $sth = $db->query($sql);
