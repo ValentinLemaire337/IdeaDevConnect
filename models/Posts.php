@@ -74,7 +74,7 @@ class Posts{
         return $sth->fetch();
     }
 
-    public function getAll(){
+    public static function getAll(){
         $db = connect();
         $sql = 'SELECT * FROM `posts`;';
         $sth = $db->query($sql);
