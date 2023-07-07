@@ -7,7 +7,7 @@
     try {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $mail = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
-            $password = filter_input(INPUT_POST, 'password', FILTER_DEFAULT);
+            $password = $_POST['password'];
 
             // utilisation de password_verify($password, $passwordHash);
             $getUser = User::getByMail($mail);

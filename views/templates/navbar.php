@@ -28,7 +28,7 @@
                     <a class="nav-link" href="/controllers/dashboard/dashboardCtrl.php">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/controllers/forum.php">Déconnexion</a>   <!-- apparait quand user connecté -->
+                    <a class="nav-link" href="/controllers/logOutCtrl.php">Déconnexion</a>   <!-- apparait quand user connecté -->
                 </li>
             </ul>
         </div>

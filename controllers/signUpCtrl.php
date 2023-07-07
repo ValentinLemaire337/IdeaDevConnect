@@ -55,17 +55,21 @@ try {
             }
         }
 
-        $password = filter_input(INPUT_POST, 'password', FILTER_DEFAULT);
-        $password1 = filter_input(INPUT_POST, 'password1', FILTER_DEFAULT);
+        $password = $_POST['password'];          //filter_input(INPUT_POST, 'password', FILTER_DEFAULT);
+        $password1 = $_POST['password1'];         //filter_input(INPUT_POST, 'password1', FILTER_DEFAULT);
 
         var_dump($password);
         var_dump($password1);
 
         if ($password == $password1) {
             $password = password_verify($password, REGEX_PWD);
-            $passwordHashed = password_hash($password, PASSWORD_BCRYPT);
-            var_dump($passwordHashed);
-        }else{
+            if ($password) {
+                $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
+                var_dump($passwordHashed);
+            } else {
+                $errorPassword = MESSAGES['Mot de passe invalide'];
+            }
+        } else {
             $errorPassword = MESSAGES['Mot de passe invalide'];
             var_dump('pb mdp');
             $error = 1;
@@ -83,13 +87,13 @@ try {
             if ($response) {
                 // message réussite user ajouté
                 $successAdd = MESSAGES['SUCCESS_MESSAGE_USER'];
-                header('location: /controllers/forumCtrl.php');
+                header('location: /controllers/homeCtrl.php');
             }
-        }else{
+        } else {
             $errorMsg = MESSAGES['ERROR_MESSAGE_ACCOUNT'];
         }
     }
-}catch (\Throwable $th) {
+} catch (\Throwable $th) {
     //throw $th;
 }
 
