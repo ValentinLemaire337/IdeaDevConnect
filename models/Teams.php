@@ -66,7 +66,7 @@ class Teams{
         $sql = 'INSERT INTO `teams` (`teamName`, `created_at`)
             VALUES (:teamName, NOW())';
         $sth = $db->prepare($sql);
-        $sth->bindValue(':lastname', $this->teamName);
+        $sth->bindValue(':teamName', $this->teamName);
         return $sth->execute();
     }
 
