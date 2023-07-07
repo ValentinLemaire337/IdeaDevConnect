@@ -18,7 +18,7 @@
                             <h2>Titre du projet</h2>
                             <p class="text-truncate">truncated text</p>
                         </div>
-                        <a href="#"><button type="button" class="btn btn-light">Accèder au projet</button></a>
+                        <a href="/controllers/forum/projectCtrl.php"><button type="button" class="btn btn-light">Accèder au projet</button></a>
                     </div>
                 </div>
                 <div class="input-group mb-2 mx-auto">

@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../helpers/connect.php';
 
-class Team{
+class Teams{
     
     private int $id;
     private string $teamName;

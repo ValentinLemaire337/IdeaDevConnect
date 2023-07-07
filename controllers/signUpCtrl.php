@@ -15,7 +15,9 @@ try {
         $lastname = trim(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES));
         var_dump($lastname);
         if (empty($lastname)) {
+            $errorNoLastname = MESSAGES['ERROR_MESSAGE_LASTNAME'];
             var_dump('pas de lastname');
+            $error = 1;
         } else {
             $isOk = filter_var($lastname, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_NAME . '/')));
             if (!$isOk) {

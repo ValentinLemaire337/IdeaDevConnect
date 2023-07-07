@@ -26,5 +26,9 @@ define("MESSAGES", [
     'ERROR_MESSAGE_LASTNAME' => 'Nom invalide',
     'ERROR_MESSAGE_MAIL' => 'Mail invalide',
     'ERROR_MESSAGE_PASSWORD' => 'Mot de passe invalide',
-    'ERROR_MESSAGE_ACCOUNT' => 'compte non créer'
+    'ERROR_MESSAGE_ACCOUNT' => 'Compte non créer',
+    'ERROR_PROJECT_TITLE' => 'Titre de votre projet manquant',
+    'ERROR_PROJECT_DESC' => 'Description de votre projet manquante ou incorrecte',
+    'ERROR_MESSAGE_MESSAGE' => 'Votre message ne respecte pas blabla',
+    'ERROR_TEAM_NAME' => 'nom d\'équipe vide ou contient des caractères non valide'
 ]);

@@ -1,4 +1,4 @@
-<div class="container-fluid m-5">
+<div class="container-fluid d-flex m-5">
     <div class="row col-12 text-center">
         <div class="card col-3" style="width: 35rem;">
             <div class="card-body">
