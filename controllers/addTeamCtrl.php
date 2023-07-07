@@ -22,12 +22,13 @@ try {
                 $error = 1;
                 var_dump('nom incorrect');
             }
-        }
-
-        if($error == 0){
-            $newTeam = new Teams;
-            $newTeam->set_teamName($teamName);
-            $response = $newTeam->add();
+            if($error == 0){
+                $newTeam = new Teams;
+                $newTeam->set_teamName($teamName);
+                $response = $newTeam->add();
+                var_dump($response);
+                var_dump('allo');
+            }
         }
     }
 } catch (\Throwable $th) {
