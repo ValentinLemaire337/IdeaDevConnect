@@ -86,7 +86,7 @@ class Teams{
         return $sth->fetchAll();
     }
 
-    public function get(int $id):mixed{
+    public static function get(int $id):mixed{
         $db = connect();
         $sql = 'SELECT * FROM `teams` WHERE `id` = :id;';
         $sth = $db->prepare($sql);
