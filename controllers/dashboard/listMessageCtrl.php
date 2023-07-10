@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../../helpers/connect.php';
-require_once __DIR__ . '/../../models/teams.php';
+require_once __DIR__ . '/../../models/Posts.php';
 
 
 try {
@@ -11,5 +11,5 @@ try {
 }
 
 include __DIR__ . '/../../views/templates/header.php';
-    include __DIR__ . '/../../views/users/admin/messages.php';
+    include __DIR__ . '/../../views/users/admin/messages.php'; 
 include __DIR__ . '/../../views/templates/footer.php';

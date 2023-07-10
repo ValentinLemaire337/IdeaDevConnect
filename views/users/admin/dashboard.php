@@ -18,5 +18,11 @@
                 <a href="/controllers/dashboard/listMessageCtrl.php" class="btn btn-light">Accèder à tous les messages</a>
             </div>
         </div>
+        <div class="card col-8" style="width: 35rem;">
+            <div class="card-body">
+                <h4 class="card-title">Langages</h4>
+                <a href="/controllers/dashboard/addLanguagesCtrl.php" class="btn btn-light">Ajouter un langage</a>
+            </div>
+        </div>
     </div>
 </div>

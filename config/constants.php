@@ -15,12 +15,14 @@ define("ROLE",[
 
 
 define("REGEX_NAME", "^[A-Za-z é'èçàù-]{2,50}$");
+define("REGEX_LANGUAGE","^[A-Za-z é'èçàù+#-]{2,50}$");
 define("REGEX_MAIL", "^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
 define("REGEX_PWD", "^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\W])(?=\S*[\d])\S*$");
 
 define("MESSAGES", [
     'INFO_MESSAGE_USER' =>'Compte utilisateur en attente de validation',
-    'SUCCESS_MESSAGE_USER' =>'Compte utilisateur créer',
+    'SUCCESS_MESSAGE_USER' => 'Compte utilisateur créer',
+    'SUCCESS_ADD_LANGUAGE' => 'Ajout d\'un langage réussi',
     'ERROR_MESSAGE_USER' =>'Compte utilisateur introuvable',
     'ERROR_MESSAGE_FIRSTNAME' => 'Prénom invalide',
     'ERROR_MESSAGE_LASTNAME' => 'Nom invalide',
@@ -30,5 +32,8 @@ define("MESSAGES", [
     'ERROR_PROJECT_TITLE' => 'Titre de votre projet manquant',
     'ERROR_PROJECT_DESC' => 'Description de votre projet manquante ou incorrecte',
     'ERROR_MESSAGE_MESSAGE' => 'Votre message ne respecte pas blabla',
-    'ERROR_TEAM_NAME' => 'nom d\'équipe vide ou contient des caractères non valide'
+    'ERROR_TEAM_NAME' => 'nom d\'équipe vide ou contient des caractères non valide',
+    'ERROR_ADD_LANGUAGE' => 'Le champ du langage est vide',
+    'ERROR_BAD_LANGUAGE' => 'Veuillez utiliser que des caractères valides pour l\'ajout d\'un langage',
+    'ERROR_ADD_MESSAGE' => 'L\'ajout en base de donnée de votre langage a échoué'
 ]);
