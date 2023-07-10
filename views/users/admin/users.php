@@ -24,8 +24,8 @@
                     <td> htmlentities($user->role) </td>
                     <td><?= htmlentities($user->created_at) ?></td>
                     <td>
-                        <a href="/controllers/editUserCtrl.php?id=<?= htmlentities($user->users_id) ?>"><i class="far fa-edit"></i></a>
-                        <a href="/controllers/deleteUserCtrl.php?id=<?= $user->users_id ?>"><i class="fas fa-trash fs-5"></i></a>
+                        <a href="/controllers/dashboard/editUserCtrl.php?id=<?= htmlentities($user->users_id) ?>"><i class="far fa-edit"></i></a>
+                        <a href="/controllers/dashboard/deleteUserCtrl.php?id=<?= $user->users_id ?>"><i class="fas fa-trash fs-5"></i></a>
                     </td>
                 </tr>
             <?php } ?>

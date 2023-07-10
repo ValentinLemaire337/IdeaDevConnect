@@ -22,6 +22,7 @@ try {
                 $error = 1;
                 var_dump('nom incorrect');
             }
+            var_dump($error);
             if($error == 0){
                 $newTeam = new Teams;
                 $newTeam->set_teamName($teamName);
