@@ -35,5 +35,10 @@ define("MESSAGES", [
     'ERROR_TEAM_NAME' => 'nom d\'équipe vide ou contient des caractères non valide',
     'ERROR_ADD_LANGUAGE' => 'Le champ du langage est vide',
     'ERROR_BAD_LANGUAGE' => 'Veuillez utiliser que des caractères valides pour l\'ajout d\'un langage',
-    'ERROR_ADD_MESSAGE' => 'L\'ajout en base de donnée de votre langage a échoué'
+    'ERROR_ADD_MESSAGE' => 'L\'ajout en base de donnée de votre langage a échoué',
+    'ERROR_UPDATE_MESSAGE' => 'Veuillez remplir le champ manquant',
+    'ERROR_UPDATE_MESSAGE_CONTENT' => 'Votre message contient des caractères non valide',
+    'ERROR_UPDATE_MESSAGE_DB' => 'Erreur lors de la mise à jour de votre message en base de données',
+    'ERROR_UPDATE_TEAMNAME' => 'Veuillez saisir un nom d\'équipe correct',
+    'ERROR_UPDATE_TEAM' => 'Erreur lors de la mise à jour de l\'équipe dans la base de données'
 ]);

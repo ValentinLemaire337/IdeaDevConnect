@@ -13,7 +13,7 @@ try {
 
         // nettoyage et vérification lastname 
         $lastname = trim(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES));
-        var_dump($lastname);
+        // var_dump($lastname);
         if (empty($lastname)) {
             $errorNoLastname = MESSAGES['ERROR_MESSAGE_LASTNAME'];
             var_dump('pas de lastname');
@@ -28,7 +28,7 @@ try {
 
         // nettoyage et vérification firstname
         $firstname = trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES));
-        var_dump($firstname);
+        // var_dump($firstname);
         if (empty($firstname)) {
             var_dump('pas de firstname');
             $error = 1;
@@ -41,7 +41,7 @@ try {
         }
 
         $mail = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
-        var_dump($mail);
+        // var_dump($mail);
         //**** VERIFICATION ****/
         if (empty($mail)) {
             var_dump('pas de mail');
@@ -60,16 +60,19 @@ try {
         $password = $_POST['password'];          //filter_input(INPUT_POST, 'password', FILTER_DEFAULT);
         $password1 = $_POST['password1'];         //filter_input(INPUT_POST, 'password1', FILTER_DEFAULT);
 
-        var_dump($password);
-        var_dump($password1);
+        // var_dump($password);
+        // var_dump($password1);
 
         if ($password == $password1) {
-            $password = password_verify($password, REGEX_PWD);
+            $password = filter_input(INPUT_POST, 'password', FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_PWD . '/')));
+            var_dump($password);
             if ($password) {
                 $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
                 var_dump($passwordHashed);
             } else {
-                $errorPassword = MESSAGES['Mot de passe invalide'];
+                // $errorPassword = MESSAGES['Mot de passe invalide'];
+                $error = 1;
+                var_dump('a');
             }
         } else {
             $errorPassword = MESSAGES['Mot de passe invalide'];

@@ -1,13 +1,13 @@
 <?php 
 
 require_once __DIR__ . '/../helpers/connect.php';
+require_once __DIR__ . '/../models/Languages.php';
 
 class Ideas{
 
     private int $id;
     private string $name;
     private string $description;
-    // private string $image;
     private string $created_at;
     private string $updated_at;
     private string $validated_at;
@@ -15,7 +15,7 @@ class Ideas{
 
      // GETTER
 
-     public function get_id(){
+    public function get_id(){
         return $this->id;
     }
     public function get_name(){
@@ -24,9 +24,6 @@ class Ideas{
     public function get_description(){
         return $this->description;
     }
-    // public function get_image(){
-    //     return $this->image;
-    // }
     public function get_created_at(){
         return $this->created_at;
     }
@@ -52,9 +49,6 @@ class Ideas{
     public function set_description(int $description){
         $this->description = $description;
     }
-    // public function set_image(string $image){
-    //     $this->image = $image;
-    // }
     public function set_created_at(string $created_at){
         $this->created_at = $created_at;
     }
@@ -78,7 +72,6 @@ class Ideas{
         $sth = $db->prepare($sql);
         $sth->bindValue(':name', $this->name);
         $sth->bindValue(':description', $this->description);
-        // $sth->bindValue(':image', $this->image);
         return $sth->execute();
     }
 
@@ -107,20 +100,24 @@ class Ideas{
         $sql = 'UPDATE `ideas`
                 SET `name` = :name,
                 `description` = :description,
-                -- `image` = :image,
                 `updated_at` = NOW()
                 WHERE `id` = :id';
         $sth = $db->prepare($sql);
         $sth->bindValue(':name', $this->name);
         $sth->bindValue(':description', $this->description);
-        // $sth->bindValue(':image', $this->image);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         return $sth->execute();
     }
 
 
     // ajouter methode deleted_at
-
+    public static function delete(int $id){
+        $db = connect();
+        $sql = 'DELETE FROM `ideas` WHERE `id` = :id;';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        
+    }
     
 
 }

@@ -1,4 +1,5 @@
 <?php
+session_start();
 
     require_once __DIR__ . '/../config/constants.php';
     require_once __DIR__ . '/../helpers/connect.php';
@@ -6,6 +7,7 @@
 
     try {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $error = 0;
             $mail = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
             $password = $_POST['password'];
 
@@ -13,16 +15,27 @@
             $getUser = User::getByMail($mail);
             var_dump($getUser);
             var_dump($password);
+
             $passwordHashed = $getUser->password;
             var_dump($passwordHashed);
+
             $passwordVerified = password_verify($password, $passwordHashed);
             var_dump($passwordVerified);
+
+            if(!$passwordVerified){
+                $error = 1;
+                $errorPassword = MESSAGES['ERROR_MESSAGE_PASSWORD'];
+            }
             if(!$getUser){
                 $errorMail = MESSAGES['ERROR_MESSAGE_MAIL'];
-                var_dump('pas de mail valide');
-                die;
-            }else{
-                var_dump('c\'est bon');
+                $error = 1;
+                // var_dump('pas de mail valide');
+                // die;
+            }
+
+            if($error == 0){
+                $_SESSION['user'] = $getUser;
+                header('location: /controllers/forumCtrl.php');
             }
         }
     } catch (\Throwable $th) {

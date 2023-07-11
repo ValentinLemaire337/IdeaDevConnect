@@ -81,19 +81,23 @@ class Posts{
         return $sth->fetchAll();
     }
 
-    public function update(){
+    public function update(int $id){
         $db = connect();
         $sql = 'UPDATE `posts`
                 SET `post` = :post,
                 `updated_at` = NOW()
                 WHERE `id` = :id';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':post', $this->post);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        return $sth->execute();
     }
 
-    public function delete(){
+    public function delete(int $id){
         $db = connect();
         $sql = 'DELETE FROM `teams` WHERE `id` = :id;';
         $sth = $db->prepare($sql);
-        $sth->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
         return $sth->execute();
     }
 } 

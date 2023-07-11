@@ -159,8 +159,7 @@ class User{
                 `lastname` = :lastname,
                 `mail` = :mail,
                 `updated_at` = NOW()
-                WHERE `id` = :id
-                ';                      // ajout updated_at = now()
+                WHERE `id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue('firstname', $this->firstname, PDO::PARAM_STR);
         $sth->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
@@ -168,6 +167,19 @@ class User{
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();
     }
+
+    //méthode pour update le mot de passe users
+    public function updatePassword(int $id){
+        $db = connect();
+        $sql = 'UPDATE `users`
+                SET `password` = :password
+                WHERE `id` = :id;';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':password', $this->password);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        return $sth->execute();
+    }
+
 
     //méthode pour delete un utilisateur
 
