@@ -11,7 +11,7 @@
                     <h1 class="mb-4">Liste des Projets</h1>
 
                     <div class="row row-cols-1 row-cols-md-3 g-4">
-                        <div class="col">
+                    <div class="col">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Projet 1</h5>
