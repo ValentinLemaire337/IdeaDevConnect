@@ -1,29 +1,40 @@
 <div class="container">
-    <div class="row">
-        <div class="d-flex col-8">
-            <div>
-                <img src="" alt="">
-                <p>author</p>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Nom du projet</h4>
+                    <p class="card-text">Description du projet : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit vel tortor blandit fringilla. Mauris a metus aliquam, ullamcorper ipsum eget, fermentum justo.</p>
+                    <p class="card-text">Langages utilisés :</p>
+                    <div class="d-flex flex-wrap mb-3">
+                        <span class="badge bg-primary me-2">HTML</span>
+                        <span class="badge bg-primary me-2">CSS</span>
+                        <span class="badge bg-primary me-2">JavaScript</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <a href="/controllers/forum/applyProjectCtrl.php" class="btn btn-primary me-2">Postuler à ce projet</a>
+                        <a href="/controllers/forum/followProjectCtrl.php" class="btn btn-secondary">Suivre ce projet</a>
+                    </div>
+                </div>
+
             </div>
-            <div>
-                <h2>titre du projet</h2>
-                <p>
-                    Présentation du projet
-                </p>
-                <p>
-                    Langages utilisés : PHP JS etc ..
-                </p>
-            </div>
-        </div>
-        <h2>Espace commentaires</h2>
-        <div class="d-flex">
-            <!-- foreach pour afficher les commentaires -->
-            <div>
-                <p>Author</p>
-                <img src="" alt="">
-            </div>
-            <div>
-                <p>Je commente beaucoup</p>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Espace commentaire</h5>
+                    <!-- foreach pour y afficher les commentaires du projet -->
+                    <div class="border card-body mt-4 mb-4">
+                        <p>Auteur</p>
+                        <p>Le : date</p>
+                        <p>Ceci est un exemple de commentaire</p>
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <label for="comment" class="form-label">Vous voulez participer à la discussion ?</label>
+                            <textarea class="form-control" id="comment" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ajouter un commentaire</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

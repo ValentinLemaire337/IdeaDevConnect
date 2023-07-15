@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="row">
+    <div class="row mt-5">
         <h2>Ajout de votre projet :</h2>
-        <div class="col-8 m-5">
+        <div class="col-8  m-5">
             <form method="post">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="title">Titre de votre projet</span>
@@ -13,17 +13,15 @@
                     <textarea name="projectDesc" class="form-control" aria-label="With textarea" required></textarea>
                 </div>
 
+                <p>Langages que vous souhaitez utilisés :</p>
                 <div class="btn-group mb-3" role="group" aria-label="Basic checkbox toggle button group">
                     <!-- foreach pour chaque langage -->
                     <input type="checkbox" class="btn-check" id="languages[]" name="languages[]" autocomplete="off">
                     <label class="btn btn-outline-primary" for="languages[]">HTML</label>
                 </div>
-
-                <div class="input-group mb-3">
-                    <label class="input-group-text" for="imageProject">Image d'illustration</label>
-                    <input name="imageProject" type="file" class="form-control" id="imageProject">
+                <div>
+                    <button type="submit" class="btn btn-primary">Valider</button>
                 </div>
-                <button type="submit" class="btn btn-primary">Valider</button>
             </form>
         </div>
     </div>

@@ -19,6 +19,9 @@
                     <a class="nav-link" href="/controllers/forumCtrl.php">Forum</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/controllers/teamCtrl.php">Les équipes</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/controllers/profilCtrl.php">Profil</a>
                 </li>
                 <li class="nav-item">
