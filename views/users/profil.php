@@ -17,7 +17,11 @@
                         <a href="/controllers/teamProfilCtrl.php" class="btn btn-primary me-2">Equipe 1</a>
                         <a href="/controllers/teamProfilCtrl.php" class="btn btn-primary me-2">Equipe 2</a>
                     </div>
+                    <a href="/controllers/updateUserCtrl.php" class="btn btn-primary">Modifier les informations</a>
                     <a href="/controllers/changePasswordCtrl.php" class="btn btn-primary">Modifier le mot de passe</a>
+                </div>
+                <div class="text-center mb-3">
+                    <a href="/controllers/changePasswordCtrl.php" class="btn btn-danger">Supprimer mon compte</a>
                 </div>
             </div>
         </div>

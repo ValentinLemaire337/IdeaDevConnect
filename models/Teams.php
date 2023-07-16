@@ -106,7 +106,7 @@ class Teams{
         $sth->execute();
     }
 
-    public function delete(int $id){
+    public static function delete(int $id){
         $db = connect();
         $sql = 'DELETE FROM `teams` WHERE `id` = :id;';
         $sth = $db->prepare($sql);

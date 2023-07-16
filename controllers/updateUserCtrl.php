@@ -15,9 +15,7 @@ try {
         $lastname = trim(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $mail = trim(filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL));
 
-// ERROR_MESSAGE_FIRSTNAME
-// ERROR_MESSAGE_LASTNAME
-// ERROR_MESSAGE_MAIL
+
         if(empty($firstname)){
             $errorUpdateFirstname = MESSAGES['ERROR_MESSAGE_FIRSTNAME'];
             $error =1;
@@ -63,3 +61,7 @@ try {
 } catch (\Throwable $th) {
     //throw $th;
 }
+
+include __DIR__ . '/../views/templates/header.php';
+include __DIR__ . '/../views/users/updateUser.php';
+include __DIR__ . '/../views/templates/footer.php';
