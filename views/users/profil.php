@@ -15,7 +15,7 @@
                     <h5 class="card-subtitle mb-3">Équipes rejointes :</h5>
                     <div class="d-flex flex-wrap mb-3">
                         <a href="/controllers/teamProfilCtrl.php" class="btn btn-primary me-2">Equipe 1</a>
-                        <a href="/controllers/forum/teamProfilCtrl.php" class="btn btn-primary me-2">Equipe 2</a>
+                        <a href="/controllers/teamProfilCtrl.php" class="btn btn-primary me-2">Equipe 2</a>
                     </div>
                     <a href="/controllers/changePasswordCtrl.php" class="btn btn-primary">Modifier le mot de passe</a>
                 </div>

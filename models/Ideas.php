@@ -84,9 +84,9 @@ class Ideas{
         return $sth->fetch();
     }
 
-    public function getAll(){
+    public static function getAll(){
         $db = connect();
-        $sql = 'SELECT `name`, `description`, `image`, `created_at`
+        $sql = 'SELECT *
                 FROM `ideas`;';
         $sth = $db->query($sql);
         return $sth->fetchAll();

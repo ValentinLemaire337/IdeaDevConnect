@@ -11,21 +11,25 @@
                     <h1 class="mb-4">Liste des Projets</h1>
 
                     <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
+                    <?php foreach ($ideas as $idea) {
+                        # code...
+                    ?>
+                        <div class="col">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Projet 1</h5>
+                                    <h5 class="card-title"><?= htmlentities($idea->name) ?></h5>
                                     <p>Auteur</p>
-                                    <p class="card-text">Description du Projet 1...</p>
+                                    <p class="card-text"><?= htmlentities($idea->description) ?></p>
                                     <a href="/controllers/forum/projectCtrl.php" class="btn btn-primary">Voir le Projet</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- Répéter le bloc de code ci-dessus pour chaque projet -->
+
+                        <?php } ?>
                     </div>
                 </main>
                 <div class="input-group mb-2 mx-auto d-flex justify-content-center">
-                <span class="input-group-text" id="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">
                         <a href="/controllers/forum/addProjectCtrl.php">
                             <button type="button" class="btn btn-light">Créer son projet</button>
                         </a>

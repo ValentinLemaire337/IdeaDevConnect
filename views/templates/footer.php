@@ -2,13 +2,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 text-center">
+                <a href="/controllers/homeCtrl.php">Accueil</a>
+            </div>
+            <div class="col-md-4 text-center">
                 <a href="/controllers/cguCtrl.php">CGU</a>
             </div>
             <div class="col-md-4 text-center">
-                <a href="/controllers/contactCtrl.php">Contact</a>
-            </div>
-            <div class="col-md-4 text-center">
-                <a href="/controllers/homeCtrl.php">Accueil</a>
+                <a href="mailto:contact@gmail.com">Contact</a>
             </div>
         </div>
     </div>

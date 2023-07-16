@@ -5,7 +5,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Nom de l'équipe</th>
-                        <th scope="col">Membre depuis le</th>
+                        <th scope="col">Créée le</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
