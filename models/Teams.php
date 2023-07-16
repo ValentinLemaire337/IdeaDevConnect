@@ -114,7 +114,4 @@ class Teams{
         $sth->execute();
     }
 
-    
-
-
 }
