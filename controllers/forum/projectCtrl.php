@@ -12,6 +12,7 @@ try {
     $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
     $idea = Ideas::get($id);
+    var_dump($idea);
 } catch (\Throwable $th) {
     //throw $th;
 }

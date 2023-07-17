@@ -86,14 +86,33 @@ class Teams{
         return $sth->fetchAll();
     }
 
-    public static function get(int $id):mixed{
+    // public static function get(int $id):mixed{
+    //     $db = connect();
+    //     $sql = 'SELECT * FROM `teams` WHERE `id` = :id;';
+    //     $sth = $db->prepare($sql);
+    //     $sth->bindValue(':id', $id, PDO::PARAM_INT);
+    //     $sth->execute();
+    //     return $sth->fetch();
+    // }
+
+    public static function get(int $id){
         $db = connect();
-        $sql = 'SELECT * FROM `teams` WHERE `id` = :id;';
+        $sql = 'SELECT *
+                FROM `teams`
+                INNER JOIN `ideas`
+                ON `teams`.`teams_id` = `ideas`.`teams_id`
+                RIGHT JOIN `users_ideas`
+                ON `ideas`.`ideas_id` = `users_ideas`.`users_id`
+                LEFT JOIN `users`
+                ON `users_ideas`.`users_id` = `users`.`users_id`
+                WHERE `teams_id` = :id;
+                ';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();
         return $sth->fetch();
     }
+
 
     public function update(int $id){
         $db = connect();

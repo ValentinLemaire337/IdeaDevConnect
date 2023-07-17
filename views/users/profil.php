@@ -1,12 +1,11 @@
-
 <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body text-center">
                     <img src="/public/assets/img/default-avatar.jpg" class="rounded-circle mb-3" alt="Image de profil" width="150">
-                    <h4 class="card-title"> <?=$user->lastname; $user->firstname; ?></h4>
-                    <p class="card-text">Adresse mail : utilisateur@example.com</p>
+                    <h4 class="card-title"> <?= $user->lastname. ' '. $user->firstname; ?></h4>
+                    <p class="card-text">Adresse mail : <?= $user->mail?></p>
                     <h3>Mes langages : </h3>
                     <div class="d-flex flex-wrap mb-3">
                         <span class="badge bg-primary me-2">HTML</span>
@@ -15,8 +14,9 @@
                     </div>
                     <h5 class="card-subtitle mb-3">Équipes rejointes :</h5>
                     <div class="d-flex flex-wrap mb-3">
-                        <a href="/controllers/teamProfilCtrl.php" class="btn btn-primary me-2">Equipe 1</a>
-                        <a href="/controllers/teamProfilCtrl.php" class="btn btn-primary me-2">Equipe 2</a>
+                        <?php foreach ($userTeams as $userTeam ){?>
+                        <a href="/controllers/teamProfilCtrl.php" class="btn btn-primary me-2"><?= $userTeam->teams_name?></a>
+                        <?php } ?>
                     </div>
                     <a href="/controllers/updateUserCtrl.php" class="btn btn-primary">Modifier les informations</a>
                     <a href="/controllers/changePasswordCtrl.php" class="btn btn-primary">Modifier le mot de passe</a>

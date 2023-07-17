@@ -75,9 +75,25 @@ class Ideas{
         return $sth->execute();
     }
 
+    // public static function get(int $id){
+    //     $db = connect();
+    //     $sql = 'SELECT * FROM `ideas` WHERE `ideas_id` = :id;';
+    //     $sth = $db->prepare($sql);
+    //     $sth->bindValue(':id', $id, PDO::PARAM_INT);
+    //     $sth->execute();
+    //     return $sth->fetch();
+    // }
+
     public static function get(int $id){
         $db = connect();
-        $sql = 'SELECT * FROM `ideas` WHERE `ideas_id` = :id;';
+        $sql = 'SELECT * 
+                FROM `ideas`
+                LEFT JOIN `developped`
+                ON `ideas`.`ideas_id` = `developped`.`ideas_id`
+                INNER JOIN `languages`
+                ON `developped`.`languages_id` = `languages`.`languages_id`
+                WHERE `ideas`.`ideas_id` = :id;
+                ';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();

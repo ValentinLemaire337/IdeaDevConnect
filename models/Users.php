@@ -139,6 +139,27 @@ class User{
         return $sth->fetch();
     }
 
+    public static function getTeam($id){
+        $db = connect();
+        $sql = 'SELECT * FROM `users`
+                RIGHT JOIN `belong`
+                ON `users`.`users_id` = `belong`.`users_id`
+                INNER JOIN `teams`
+                ON `belong`.`teams_id` = `teams`.`teams_id`
+                WHERE `users`.`users_id` = :id;
+                ';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id',$id, PDO::PARAM_INT);
+        $sth->execute();
+        return $sth->fetchAll();
+    }
+
+    public static function getLanguages(){
+
+    }
+
+
+
     public static function getByMail(string $mail){
         $db = connect();
         $sql = 'SELECT * FROM `users` WHERE `mail` = :email;';
