@@ -63,10 +63,10 @@ class Teams{
     public function add()
     {
         $db = connect();
-        $sql = 'INSERT INTO `teams` (`teamName`, `created_at`)
-            VALUES (:teamName, NOW())';
+        $sql = 'INSERT INTO `teams` (`teams_name`, `created_at`)
+            VALUES (:teamName, NOW());';
         $sth = $db->prepare($sql);
-        $sth->bindValue(':teamName', $this->teamName);
+        $sth->bindValue(':teamName', $this->teamName, PDO::PARAM_STR);
         return $sth->execute();
     }
 

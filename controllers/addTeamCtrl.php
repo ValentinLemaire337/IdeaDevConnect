@@ -23,7 +23,9 @@ try {
                 var_dump('nom incorrect');
             }
             var_dump($error);
+
             if($error == 0){
+                var_dump('oui');
                 $newTeam = new Teams;
                 $newTeam->set_teamName($teamName);
                 $response = $newTeam->add();
