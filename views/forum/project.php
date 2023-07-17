@@ -3,8 +3,8 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Nom du projet</h4>
-                    <p class="card-text">Description du projet : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit vel tortor blandit fringilla. Mauris a metus aliquam, ullamcorper ipsum eget, fermentum justo.</p>
+                    <h4 class="card-title"><?php htmlentities($idea->name)  ?></h4>
+                    <p class="card-text">Description du projet : </p>
                     <p class="card-text">Langages utilisés :</p>
                     <div class="d-flex flex-wrap mb-3">
                         <span class="badge bg-primary me-2">HTML</span>

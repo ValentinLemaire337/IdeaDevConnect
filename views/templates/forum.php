@@ -20,7 +20,7 @@
                                     <h5 class="card-title"><?= htmlentities($idea->name) ?></h5>
                                     <p>Auteur</p>
                                     <p class="card-text"><?= htmlentities($idea->description) ?></p>
-                                    <a href="/controllers/forum/projectCtrl.php" class="btn btn-primary">Voir le Projet</a>
+                                    <a href="/controllers/forum/projectCtrl.php?id=<?=htmlentities($idea->ideas_id)?>" class="btn btn-primary">Voir le Projet</a>
                                 </div>
                             </div>
                         </div>

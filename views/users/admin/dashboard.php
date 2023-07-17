@@ -25,9 +25,10 @@
             </div>
         </div>
         <div class="card col-8" style="width: 30rem;">
-            <div class="card-body">
+        <div class="card-body">
                 <h4 class="card-title">Langages</h4>
                 <a href="/controllers/dashboard/addLanguagesCtrl.php" class="btn btn-light">Ajouter un langage</a>
+                <a href="/controllers/dashboard/listLanguagesCtrl.php" class="btn btn-light">Voir les langages</a>
             </div>
         </div>
     </div>

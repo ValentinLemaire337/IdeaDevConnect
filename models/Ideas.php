@@ -92,6 +92,16 @@ class Ideas{
         return $sth->fetchAll();
     }
 
+    public static function getAllById(int $id){
+        $db = connect();
+        $sql = 'SELECT *
+                FROM `ideas`
+                WHERE `users_id` = :id;';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        return $sth->execute();
+    }
+
 
     // ajouter methode validated_at
 
@@ -116,7 +126,7 @@ class Ideas{
         $sql = 'DELETE FROM `ideas` WHERE `id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
-        
+        return $sth->execute();
     }
     
 

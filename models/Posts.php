@@ -81,6 +81,17 @@ class Posts{
         return $sth->fetchAll();
     }
 
+    
+    public static function getAllById(int $id){
+        $db = connect();
+        $sql = 'SELECT *
+                FROM `posts`
+                WHERE `users_id` = :id;';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        return $sth->execute();
+    }
+
     public function update(int $id){
         $db = connect();
         $sql = 'UPDATE `posts`

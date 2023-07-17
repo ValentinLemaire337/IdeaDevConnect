@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-body text-center">
                     <img src="/public/assets/img/default-avatar.jpg" class="rounded-circle mb-3" alt="Image de profil" width="150">
-                    <h4 class="card-title">Prénom Nom</h4>
+                    <h4 class="card-title">Nom Prénom</h4>
                     <p class="card-text">Adresse mail : utilisateur@example.com</p>
                     <h3>Mes langages : </h3>
                     <div class="d-flex flex-wrap mb-3">
@@ -21,7 +21,7 @@
                     <a href="/controllers/changePasswordCtrl.php" class="btn btn-primary">Modifier le mot de passe</a>
                 </div>
                 <div class="text-center mb-3">
-                    <a href="/controllers/changePasswordCtrl.php" class="btn btn-danger">Supprimer mon compte</a>
+                    <a href="/controllers/deleteUserProfilCtrl.php" class="btn btn-danger">Supprimer mon compte</a>
                 </div>
             </div>
         </div>
