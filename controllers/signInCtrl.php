@@ -35,7 +35,8 @@ session_start();
 
             if($error == 0){
                 $_SESSION['user'] = $getUser;
-                header('location: /controllers/forumCtrl.php');
+                var_dump($_SESSION['user']);
+                // header('location: /controllers/forumCtrl.php');
             }
         }
     } catch (\Throwable $th) {
