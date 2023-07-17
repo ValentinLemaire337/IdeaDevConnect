@@ -120,7 +120,7 @@ class User{
         return $sth->fetch();
     }
 
-    // méthode pour afficher toutes les infos d'un seul user
+    // méthode pour afficher toutes les infos d'un seul user avec les idées qu'ils ont publiées et leurs messages
 
     public static function get(int $id){
         $db = connect();
@@ -139,6 +139,8 @@ class User{
         return $sth->fetch();
     }
 
+    // méthode pour afficher les équipes que les utilisateurs ont rejoints
+
     public static function getTeam($id){
         $db = connect();
         $sql = 'SELECT * FROM `users`
@@ -154,8 +156,23 @@ class User{
         return $sth->fetchAll();
     }
 
-    public static function getLanguages(){
+    // méthode pour afficher les langages préférés d'un utilisateur
 
+    public static function getLanguages(int $id){
+        $db = connect();
+        $sql = 'SELECT * 
+                FROM `languages`
+                RIGHT JOIN `prefer`
+                ON `languages`.`languages_id` = `prefer`.`languages_id`
+                LEFT JOIN `users`
+                ON `prefer`.`users_id` = `users`.`users_id`
+                WHERE `users`.`users_id` = :id;
+                ';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        $sth->execute();
+        return $sth->fetch();
+        
     }
 
 

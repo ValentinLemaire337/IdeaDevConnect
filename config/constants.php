@@ -9,9 +9,12 @@ define("SECRET_KEY", 'hgtdKuIyiiFydtjr-è_èç_àç)ài654;,;:');
 define("ROLE",[
 0 => 'Administrateur',
 1 => 'Utilisateur',
-2 => 'Team Leader'
+2 => 'Team Leader',
+3 => 'Non-inscrit'
 ]
 );
+
+define('NB_ELEMENTS_BY_PAGE', 10);
 
 
 define("REGEX_NAME", "^[A-Za-z é'èçàù-]{2,50}$");

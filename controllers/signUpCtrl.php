@@ -70,12 +70,12 @@ try {
                 $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
                 var_dump($passwordHashed);
             } else {
-                // $errorPassword = MESSAGES['Mot de passe invalide'];
+                $errorPassword = MESSAGES['ERROR_MESSAGE_PASSWORD'];
                 $error = 1;
                 var_dump('a');
             }
         } else {
-            $errorPassword = MESSAGES['Mot de passe invalide'];
+            $errorPassword = MESSAGES['ERROR_MESSAGE_PASSWORD'];
             var_dump('pb mdp');
             $error = 1;
         }

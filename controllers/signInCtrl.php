@@ -29,8 +29,8 @@ session_start();
             if(!$getUser){
                 $errorMail = MESSAGES['ERROR_MESSAGE_MAIL'];
                 $error = 1;
-                // var_dump('pas de mail valide');
-                // die;
+                var_dump('pas de mail valide');
+                die;
             }
 
             if($error == 0){

@@ -112,7 +112,22 @@ class Teams{
         $sth->execute();
         return $sth->fetch();
     }
-
+    
+    public static function getUsers(int $id){
+        $db = connect();
+        $sql = 'SELECT *
+                FROM `users`
+                RIGHT JOIN `belong`
+                ON `users`.`users_id` = `belong`.`users_id`
+                LEFT JOIN `teams`
+                ON `belong`.`teams_id` = `teams`.`teams_id`
+                WHERE `teams`.`teams_id` = :id;
+                ';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        $sth->execute();
+        return $sth->fetch();
+    }
 
     public function update(int $id){
         $db = connect();
