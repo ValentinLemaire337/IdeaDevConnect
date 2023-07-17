@@ -1,10 +1,11 @@
+
 <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body text-center">
                     <img src="/public/assets/img/default-avatar.jpg" class="rounded-circle mb-3" alt="Image de profil" width="150">
-                    <h4 class="card-title">Nom Prénom</h4>
+                    <h4 class="card-title"> <?=$user->lastname; $user->firstname; ?></h4>
                     <p class="card-text">Adresse mail : utilisateur@example.com</p>
                     <h3>Mes langages : </h3>
                     <div class="d-flex flex-wrap mb-3">

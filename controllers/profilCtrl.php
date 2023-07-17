@@ -3,6 +3,8 @@
 require_once __DIR__ . '/../helpers/connect.php';
 require_once __DIR__ . '/../config/constants.php';
 require_once __DIR__ . '/../models/Users.php';
+require_once __DIR__ . '/../models/Languages.php';
+require_once __DIR__ . '/../models/Teams.php';
 
 
 
@@ -11,6 +13,8 @@ try {
     $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
     $user = User::get($id);
+    var_dump($user);
+    die;
 } catch (\Throwable $th) {
     //throw $th;
 }

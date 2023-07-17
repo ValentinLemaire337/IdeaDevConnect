@@ -77,7 +77,7 @@ class Ideas{
 
     public static function get(int $id){
         $db = connect();
-        $sql = 'SELECT * FROM `ideas` WHERE `id` = :id;';
+        $sql = 'SELECT * FROM `ideas` WHERE `ideas_id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();

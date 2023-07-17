@@ -15,7 +15,7 @@ define("ROLE",[
 
 
 define("REGEX_NAME", "^[A-Za-z é'èçàù-]{2,50}$");
-define("REGEX_LANGUAGE","^[A-Za-z é'èçàù+#-]{2,50}$");
+define("REGEX_LANGUAGE","^[A-Za-z é'èçàù+#- ]{2,50}$");
 define("REGEX_MAIL", "^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
 define("REGEX_PWD", "^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\W])(?=\S*[\d])\S*$");
 

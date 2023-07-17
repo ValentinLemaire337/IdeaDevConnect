@@ -124,7 +124,15 @@ class User{
 
     public static function get(int $id){
         $db = connect();
-        $sql = 'SELECT * FROM `users` WHERE `id` = :id;';
+        $sql = 'SELECT * FROM `posts`
+                RIGHT JOIN `users`
+                ON `posts`.`users_id` = `users`.`users_id`
+                LEFT JOIN `users_ideas` 
+                ON `users_ideas`.`users_id` = `users`.`users_id`
+                LEFT JOIN `ideas` 
+                ON `users_ideas`.`ideas_id` = `ideas`.`ideas_id`
+                WHERE `users`.`users_id` = :id;
+                ';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();
