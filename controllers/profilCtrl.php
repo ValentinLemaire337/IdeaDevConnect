@@ -15,6 +15,8 @@ try {
 
     $user = User::get($id);
     $userTeams = User::getTeam($id);
+    $userId = User::getId($id);
+    var_dump($userId);
     // $ideaLanguage = Ideas::get($id);
     // var_dump($ideaLanguage);
     var_dump($user);

@@ -97,8 +97,8 @@ class User{
 
     public function add(){
         $db = connect();
-        $sql = 'INSERT INTO `users` (`firstname`, `lastname`, `mail`, `password`, `created_at`)
-        VALUES (:firstname, :lastname, :mail, :password, NOW());';
+        $sql = 'INSERT INTO `users` (`firstname`, `lastname`, `mail`, `password`, `role`, `created_at`)
+        VALUES (:firstname, :lastname, :mail, :password, 1, NOW());';
         $sth = $db->prepare($sql);
         $sth->bindValue(':lastname', $this->get_lastname(), PDO::PARAM_STR);
         $sth->bindValue(':firstname', $this->get_firstname(), PDO::PARAM_STR);
@@ -133,6 +133,15 @@ class User{
                 ON `users_ideas`.`ideas_id` = `ideas`.`ideas_id`
                 WHERE `users`.`users_id` = :id;
                 ';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        $sth->execute();
+        return $sth->fetch();
+    }
+
+    public static function getId(int $id){
+        $db = connect();
+        $sql = 'SELECT * FROM `users` WHERE `users_id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();
@@ -205,7 +214,7 @@ class User{
                 `lastname` = :lastname,
                 `mail` = :mail,
                 `updated_at` = NOW()
-                WHERE `id` = :id;';
+                WHERE `users_id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue('firstname', $this->firstname, PDO::PARAM_STR);
         $sth->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
@@ -219,7 +228,7 @@ class User{
         $db = connect();
         $sql = 'UPDATE `users`
                 SET `password` = :password
-                WHERE `id` = :id;';
+                WHERE `users_id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':password', $this->password);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
@@ -229,9 +238,9 @@ class User{
 
     //méthode pour delete un utilisateur
 
-    public function delete(int $id){
+    public static function delete(int $id){
         $db = connect();
-        $sql = 'DELETE FROM `users` WHERE `id` = :id;';     // + add date de delete
+        $sql = 'DELETE FROM `users` WHERE `users_id` = :id;';     // + add date de delete
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();

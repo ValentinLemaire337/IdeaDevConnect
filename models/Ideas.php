@@ -67,8 +67,8 @@ class Ideas{
 
     public function add(){
         $db = connect();
-        $sql = 'INSERT INTO `ideas`(`name`,`description`, `image`, `created_at`)
-                VALUES (:name, :description, :image, NOW());';
+        $sql = 'INSERT INTO `ideas`(`name`,`description`, `created_at`)
+                VALUES (:name, :description, NOW());';
         $sth = $db->prepare($sql);
         $sth->bindValue(':name', $this->name);
         $sth->bindValue(':description', $this->description);

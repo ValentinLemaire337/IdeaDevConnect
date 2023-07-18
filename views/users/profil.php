@@ -22,7 +22,7 @@
                     <a href="/controllers/changePasswordCtrl.php" class="btn btn-primary">Modifier le mot de passe</a>
                 </div>
                 <div class="text-center mb-3">
-                    <a href="/controllers/deleteUserProfilCtrl.php" class="btn btn-danger">Supprimer mon compte</a>
+                    <a href="/controllers/deleteUserCtrl.php?id=<?=$userId->users_id?>" class="btn btn-danger">Supprimer mon compte</a>
                 </div>
             </div>
         </div>

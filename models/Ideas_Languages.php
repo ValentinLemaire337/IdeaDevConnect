@@ -25,7 +25,12 @@ class IdeasLanguages{
 
     // METHODES
 
-    public function add(){
-        
+    public function add(int $ideas_id){
+        $db = connect();
+        $sql = 'INSERT INTO `developped`(`ideas_id`, `languages_id`)
+                VALUES (:ideas_id, :languages_id);';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':ideas_id', $ideas_id, PDO::PARAM_INT);
+        $sth->bindValue(':ideas_id', $ideas_id, PDO::PARAM_INT);
     }
 }
