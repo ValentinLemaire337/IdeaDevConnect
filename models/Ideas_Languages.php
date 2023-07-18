@@ -25,12 +25,21 @@ class IdeasLanguages{
 
     // METHODES
 
-    public function add(int $ideas_id){
+    public function add(){
         $db = connect();
         $sql = 'INSERT INTO `developped`(`ideas_id`, `languages_id`)
                 VALUES (:ideas_id, :languages_id);';
         $sth = $db->prepare($sql);
-        $sth->bindValue(':ideas_id', $ideas_id, PDO::PARAM_INT);
-        $sth->bindValue(':ideas_id', $ideas_id, PDO::PARAM_INT);
+        $sth->bindValue(':ideas_id', $this->ideas_id, PDO::PARAM_INT);
+        $sth->bindValue(':ideas_id', $this->languages_id, PDO::PARAM_INT);
+        return $sth->execute();
+    }
+
+    public function delete(int $ideas_id, int $languages_id){
+        $db = connect();
+        $sql = 'DELETE FROM `developped` WHERE `ideas_id` = :id;';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $this->ideas_id, PDO::PARAM_INT);
+        return $sth->execute();
     }
 }

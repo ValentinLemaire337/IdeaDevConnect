@@ -142,7 +142,7 @@ class Teams{
 
     public static function delete(int $id){
         $db = connect();
-        $sql = 'DELETE FROM `teams` WHERE `id` = :id;';
+        $sql = 'DELETE FROM `teams` WHERE `teams_id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();

@@ -10,7 +10,7 @@ try {
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         $error = 0;
-
+        $id = filter_var(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
         $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $projectDesc = trim(filter_input(INPUT_POST, 'projectDesc', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         var_dump($title);
@@ -51,11 +51,12 @@ try {
         // image d'illustration du projet
         var_dump($error);
         if($error == 0){
-            var_dump('oui');
+            // var_dump('oui');
             $newProject = new Ideas;
             $newProject->set_name($title);
             $newProject->set_description($projectDesc);
-            $response = $newProject->add();
+            $newProject->set_users_id($id);
+            $response = $newProject->add($id);
             var_dump($response);
         }
 

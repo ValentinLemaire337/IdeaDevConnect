@@ -106,7 +106,7 @@ class Posts{
 
     public function delete(int $id){
         $db = connect();
-        $sql = 'DELETE FROM `teams` WHERE `id` = :id;';
+        $sql = 'DELETE FROM `teams` WHERE `posts_id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         return $sth->execute();

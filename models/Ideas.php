@@ -12,6 +12,8 @@ class Ideas{
     private string $updated_at;
     private string $validated_at;
     private string $deleted_at;
+    private int $teams_id;
+    private int $users_id;
 
      // GETTER
 
@@ -35,6 +37,12 @@ class Ideas{
     }
     public function get_deleted_at(){
         return $this->deleted_at;
+    }
+    public function get_teams_id(){
+        return $this->teams_id;
+    }
+    public function get_users_id(){
+        return $this->users_id;
     }
 
 
@@ -61,17 +69,24 @@ class Ideas{
     public function set_deleted_at(string $deleted_at){
         $this->deleted_at = $deleted_at;
     }
+    public function set_teams_id(string $teams_id){
+        $this->teams_id = $teams_id;
+    }
+    public function set_users_id(string $users_id){
+        $this->users_id = $users_id;
+    }
 
 
     // METHODES
 
-    public function add(){
+    public function add(int $id){
         $db = connect();
-        $sql = 'INSERT INTO `ideas`(`name`,`description`, `created_at`)
-                VALUES (:name, :description, NOW());';
+        $sql = 'INSERT INTO `ideas`(`name`,`description`, `created_at`, `users_id`)
+                VALUES (:name, :description, NOW(), :id);';
         $sth = $db->prepare($sql);
         $sth->bindValue(':name', $this->name);
         $sth->bindValue(':description', $this->description);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
         return $sth->execute();
     }
 
@@ -139,7 +154,7 @@ class Ideas{
     // ajouter methode deleted_at
     public static function delete(int $id){
         $db = connect();
-        $sql = 'DELETE FROM `ideas` WHERE `id` = :id;';
+        $sql = 'DELETE FROM `ideas` WHERE `ideas_id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         return $sth->execute();
