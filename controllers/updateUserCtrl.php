@@ -12,10 +12,10 @@ try {
     $error = 0;
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $id = filter_var(filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT));
         $firstname = trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $lastname = trim(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        $mail = trim(filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL));
+        $mail = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
 
 
         if(empty($firstname)){
@@ -51,12 +51,16 @@ try {
             }
         }
 
+        var_dump($error);
+        // die;
         if($error == 0){
             $updateUser = new User;
             $updateUser->set_firstname($firstname);
             $updateUser->set_lastname($lastname);
             $updateUser->set_mail($mail);
-            $updateUser = $updateUser->update($id);
+            $response = $updateUser->update($id);
+            var_dump($response);
+            die;
         }
 
     }

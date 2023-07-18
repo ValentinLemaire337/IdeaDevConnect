@@ -16,7 +16,7 @@ try {
             $errorLanguage = MESSAGES['ERROR_ADD_LANGUAGE'];
             $error = 1;
         } else {
-            $isOk = filter_var($language, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_NAME . '/')));
+            $isOk = filter_var($language, FILTER_DEFAULT);
             if (!$isOk) {
                 $errorLanguage = MESSAGES['ERROR_BAD_LANGUAGE'];
                 $error = 1;

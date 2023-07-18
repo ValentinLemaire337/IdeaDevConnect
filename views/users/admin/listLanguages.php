@@ -16,7 +16,6 @@
                             <td><?=$language->nameLanguage ?></td>
                         </tr>
                     <?php } ?>
-
                 </tbody>
             </table>
         </div>

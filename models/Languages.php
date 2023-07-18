@@ -28,7 +28,7 @@ class Languages{
 
     public function add(){
         $db = connect();
-        $sql = 'INSERT INTO `languages`(`name`)
+        $sql = 'INSERT INTO `languages`(`nameLanguage`)
                 VALUES (:name);';
         $sth = $db->prepare($sql);
         $sth->bindValue(':name', $this->name);
@@ -37,7 +37,7 @@ class Languages{
 
     public static function getAll(){
         $db = connect();
-        $sql = 'SELECT `name` FROM `languages`;';
+        $sql = 'SELECT * FROM `languages`;';
         $sth = $db->query($sql);
         return $sth->fetchAll();
     }

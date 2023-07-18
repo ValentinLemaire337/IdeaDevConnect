@@ -6,6 +6,7 @@ class Teams{
     
     private int $id;
     private string $teamName;
+    private string $description;
     private string $created_at;
     private string $validated_at;
     private string $updated_at;
@@ -19,6 +20,9 @@ class Teams{
     }
     public function get_teamName(){
         return $this->teamName;
+    }
+    public function get_description(){
+        return $this->description;
     }
     public function get_created_at(){
         return $this->created_at;
@@ -42,6 +46,9 @@ class Teams{
     public function set_teamName(string $teamName){
         $this->teamName = $teamName;
     }
+    public function set_description(string $description){
+        $this->description = $description;
+    }
     public function set_created_at(string $created_at){
         $this->created_at = $created_at;
     }
@@ -63,10 +70,11 @@ class Teams{
     public function add()
     {
         $db = connect();
-        $sql = 'INSERT INTO `teams` (`teams_name`, `created_at`)
-            VALUES (:teamName, NOW());';
+        $sql = 'INSERT INTO `teams` (`teams_name`,`description`, `created_at`)
+            VALUES (:teamName, :description,  NOW());';
         $sth = $db->prepare($sql);
         $sth->bindValue(':teamName', $this->teamName, PDO::PARAM_STR);
+        $sth->bindValue(':description', $this->description, PDO::PARAM_STR);
         return $sth->execute();
     }
 
