@@ -3,7 +3,7 @@
 require_once __DIR__ .'/../config/constants.php';
 require_once __DIR__ . '/../helpers/connect.php';
 require_once __DIR__ . '/../models/Users.php';
-
+SessionFlash::start();
 
 try {
     if($_SERVER['REQUEST_METHOD'] == 'POST'){

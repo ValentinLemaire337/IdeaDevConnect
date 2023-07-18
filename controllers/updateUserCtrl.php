@@ -5,6 +5,7 @@ require_once __DIR__ . '/../helpers/connect.php';
 require_once __DIR__ . '/../models/Users.php';
 require_once __DIR__ . '/../models/Languages.php';
 require_once __DIR__ . '/../models/Ideas.php';
+SessionFlash::start();
 
 
 try {

@@ -4,6 +4,7 @@
     require_once __DIR__ . '/../config/constants.php';
     require_once __DIR__ . '/../helpers/connect.php';
     require_once __DIR__ . '/../models/Users.php';
+    SessionFlash::start();
 
     try {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -35,8 +36,7 @@
 
             if($error == 0){
                 $_SESSION['user'] = $getUser;
-                var_dump($_SESSION['user']);
-                // header('location: /controllers/forumCtrl.php');
+                header('location: /controllers/forumCtrl.php');
             }
         }
     } catch (\Throwable $th) {

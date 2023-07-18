@@ -5,6 +5,7 @@
 require_once __DIR__ . '/../config/constants.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ .'/../helpers/JWT.php';
+SessionFlash::start();
 
 
 $jwt = filter_input(INPUT_GET, 'jwt',);

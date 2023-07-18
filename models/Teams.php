@@ -105,12 +105,12 @@ class Teams{
                 ON `ideas`.`ideas_id` = `users_ideas`.`users_id`
                 LEFT JOIN `users`
                 ON `users_ideas`.`users_id` = `users`.`users_id`
-                WHERE `teams_id` = :id;
+                WHERE `teams`.`teams_id` = :id;
                 ';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();
-        return $sth->fetch();
+        return $sth->fetchAll();
     }
     
     public static function getUsers(int $id){

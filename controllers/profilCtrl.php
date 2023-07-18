@@ -7,6 +7,7 @@ require_once __DIR__ . '/../models/Users.php';
 require_once __DIR__ . '/../models/Ideas.php';
 require_once __DIR__ . '/../models/Languages.php';
 require_once __DIR__ . '/../models/Teams.php';
+SessionFlash::start();
 
 
 // var_dump('test');

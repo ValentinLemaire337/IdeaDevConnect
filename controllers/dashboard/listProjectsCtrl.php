@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../../config/constants.php';
 require_once __DIR__ . '/../../helpers/connect.php';
 require_once __DIR__ . '/../../models/Ideas.php';
+SessionFlash::start();
 
 try {
     $ideas = Ideas::getAll();

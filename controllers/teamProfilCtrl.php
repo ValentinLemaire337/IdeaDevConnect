@@ -4,11 +4,14 @@ require_once __DIR__ .'/../config/constants.php';
 require_once __DIR__ . '/../helpers/connect.php';
 require_once __DIR__ . '/../models/Teams.php';
 require_once __DIR__ . '/../models/Ideas.php';
-
+SessionFlash::start();
 
 try {
+    
     $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-    $teams = Teams::get($id);
+        $teams = Teams::get($id);
+        // var_dump($teams);
+        // die;
 } catch (\Throwable $th) {
     //throw $th;
 }

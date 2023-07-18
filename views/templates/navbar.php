@@ -9,12 +9,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto justify-content-end">
+                <?php if(!isset($_SESSION['user'])){ ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/signUpCtrl.php">Inscription</a> <!-- disparait quand user connecté -->
                 </li>
+                <?php } ?>
+                <?php if(!isset($_SESSION['user'])){ ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/signInCtrl.php">Connexion</a>    <!-- disparait quand user connecté -->
                 </li>
+                <?php } ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/forumCtrl.php">Forum</a>
                 </li>
@@ -24,15 +28,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/profilCtrl.php">Profil</a>
                 </li>
+                <?php if(isset($_SESSION['user'])){ ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="/controllers/messageCtrl.php">Messagerie</a>  <!-- apparait quand user connecté -->
+                    <a class="nav-link" href="/controllers/messageCtrl.php?id=<?=$userId?>">Messagerie</a>  <!-- apparait quand user connecté -->
                 </li>
+                <?php } ?>
+                <?php if(isset($_SESSION['user']) && ($userRole == 0)){ ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/dashboard/dashboardCtrl.php">Dashboard</a>
                 </li>
+                <?php } ?>
+                <?php if(isset($_SESSION['user'])){ ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/logOutCtrl.php">Déconnexion</a>   <!-- apparait quand user connecté -->
                 </li>
+                <?php } ?>
             </ul>
         </div>
     </div>

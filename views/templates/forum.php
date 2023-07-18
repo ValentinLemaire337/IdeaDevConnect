@@ -30,12 +30,20 @@
                 </main>
                 <div class="input-group mb-2 mx-auto d-flex justify-content-center">
                     <span class="input-group-text" id="basic-addon1">
-                        <a href="/controllers/forum/addProjectCtrl.php">
+                        <a <?php if(isset($_SESSION['user'])){ ?>
+                        href="/controllers/forum/addProjectCtrl.php"
+                        <?php }else{ ?>
+                            href="/controllers/signUpCtrl.php">
+                            <?php } ?>
                             <button type="button" class="btn btn-light">Créer son projet</button>
                         </a>
                     </span>
                     <span class="input-group-text" id="basic-addon1">
-                        <a href="/controllers/addTeamCtrl.php">
+                        <a <?php if(isset($_SESSION['user'])){ ?>
+                        href="/controllers/addTeamCtrl.php"
+                        <?php }else{ ?>
+                            href="/controllers/signUpCtrl.php">
+                            <?php } ?>
                             <button type="button" class="btn btn-light">Créer son équipe</button>
                         </a>
                     </span>

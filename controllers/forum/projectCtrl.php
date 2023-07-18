@@ -6,6 +6,7 @@ require_once __DIR__ . '/../../models/Ideas.php';
 require_once __DIR__ . '/../../models/Users.php';
 require_once __DIR__ . '/../../models/Languages.php';
 require_once __DIR__ . '/../../models/Posts.php';
+SessionFlash::start();
 
 
 

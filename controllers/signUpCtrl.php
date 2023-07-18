@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../config/constants.php';
 // require_once __DIR__ . '/../helpers/JWT.php';
 require_once __DIR__ . '/../models/Users.php';
+SessionFlash::start();
 
 
 // $jwt = JWT::set($email);
