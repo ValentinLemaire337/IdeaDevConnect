@@ -13,7 +13,7 @@
 
                     <?php
                     foreach ($teams as $team) {
-                        var_dump($teams);
+                        // var_dump($teams);
                     ?>
                         <tr>
                             <td><?= htmlentities($team->teams_name) ?></td>

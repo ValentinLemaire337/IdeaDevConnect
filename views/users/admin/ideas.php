@@ -11,7 +11,7 @@
         </thead>
         <tbody>
             <?php foreach ($ideas as $idea) {
-                var_dump($idea);
+                // var_dump($idea);
             ?>
             <tr>
             <td><?= htmlentities($idea->name) ?></td>

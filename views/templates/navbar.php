@@ -22,18 +22,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/forumCtrl.php">Forum</a>
                 </li>
+                <?php if(!isset($_SESSION['user'])){ ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/teamListCtrl.php">Les équipes</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/controllers/profilCtrl.php">Profil</a>
-                </li>
+                <?php } ?>
                 <?php if(isset($_SESSION['user'])){ ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="/controllers/messageCtrl.php?id=<?=$userId?>">Messagerie</a>  <!-- apparait quand user connecté -->
+                    <a class="nav-link" href="/controllers/profilCtrl.php?id=<?=$_SESSION['user']->users_id?>">Profil</a>
                 </li>
                 <?php } ?>
-                <?php if(isset($_SESSION['user']) && ($userRole == 0)){ ?>
+                <?php if(isset($_SESSION['user'])){ ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="/controllers/messageCtrl.php?id=<?=$_SESSION['user']->users_id?>">Messagerie</a>  <!-- apparait quand user connecté -->
+                </li>
+                <?php } ?>
+                <?php if(isset($_SESSION['user']) && ($_SESSION['user']->role == 0)){ ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/dashboard/dashboardCtrl.php">Dashboard</a>
                 </li>

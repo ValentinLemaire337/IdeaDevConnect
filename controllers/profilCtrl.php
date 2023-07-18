@@ -13,16 +13,16 @@ SessionFlash::start();
 // var_dump('test');
 try {
 
-    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+    $id = filter_var(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
 
     $user = User::get($id);
     $userTeams = User::getTeam($id);
     $userId = User::getId($id);
-    var_dump($userId);
+    // var_dump($userId);
     // $ideaLanguage = Ideas::get($id);
     // var_dump($ideaLanguage);
-    var_dump($user);
-    var_dump($userTeams);
+    // var_dump($user);
+    // var_dump($userTeams);
     // die;
 } catch (\Throwable $th) {
     //throw $th;

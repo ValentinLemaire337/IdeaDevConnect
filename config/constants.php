@@ -3,8 +3,6 @@
 require_once __DIR__ . '/../helpers/SessionFlash.php';
 SessionFlash::start();
 
-$userId = $_SESSION['user']->users_id;
-$userRole = $_SESSION['user']->role;
 
 define("DSN", 'mysql:host=localhost;dbname=ideadevconnect');
 define("USER", 'valentinlemaire');

@@ -35,7 +35,7 @@ class Languages{
         $sth->execute();
     }
 
-    public function getAll(){
+    public static function getAll(){
         $db = connect();
         $sql = 'SELECT `name` FROM `languages`;';
         $sth = $db->query($sql);

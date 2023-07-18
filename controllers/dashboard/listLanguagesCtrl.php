@@ -5,9 +5,10 @@ require_once __DIR__ . '/../../models/Languages.php';
 SessionFlash::start();
 
 try {
-    $messages = Posts::getAll();
-    var_dump($messages);
-    die;
+    // $messages = Posts::getAll();
+    $languages = Languages::getAll();
+    // var_dump($messages);
+    // die;
 } catch (\Throwable $th) {
     //throw $th;
 }
@@ -15,5 +16,5 @@ try {
 
 
 include __DIR__ . '/../../views/templates/header.php';
-include __DIR__ . '/../../views/users/admin/messages.php';
+include __DIR__ . '/../../views/users/admin/listLanguages.php';
 include __DIR__ . '/../../views/templates/footer.php';
