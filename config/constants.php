@@ -1,5 +1,8 @@
 <?php 
 
+require_once __DIR__ . '/../helpers/SessionFlash.php';
+SessionFlash::start();
+
 define("DSN", 'mysql:host=localhost;dbname=ideadevconnect');
 define("USER", 'valentinlemaire');
 define("PWD", '5)XCnBIo-1hv_bG@');
