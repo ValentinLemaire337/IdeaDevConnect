@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once __DIR__ . '/../helpers/connect.php';
 require_once __DIR__ . '/../models/Teams.php';
 require_once __DIR__ . '/../models/Ideas.php';
