@@ -15,7 +15,7 @@
                     <h5 class="card-subtitle mb-3">Équipes rejointes :</h5>
                     <div class="d-flex flex-wrap text-center mb-3">
                         <?php foreach ($userTeams as $userTeam ){?>
-                        <a href="/controllers/teamProfilCtrl.php" class="btn btn-primary me-2"><?= $userTeam->teams_name?></a>
+                        <a href="/controllers/teamProfilCtrl.php?id=<?= $userTeam->teams_id ?>" class="btn btn-primary me-2"><?= $userTeam->teams_name?></a>
                         <?php } ?>
                     </div>
                     <a href="/controllers/updateUserCtrl.php?id=<?=$_SESSION['user']->users_id?>" class="btn btn-primary">Modifier les informations</a>

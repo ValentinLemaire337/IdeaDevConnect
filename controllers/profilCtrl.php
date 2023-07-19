@@ -21,7 +21,7 @@ try {
     $userTeams = User::getTeam($id);
     $userId = User::getId($id);
     $userIdeas = User::getAllIdea($id);
-    var_dump($userIdeas);
+    // var_dump($userTeams);
     // $ideaLanguage = Ideas::get($id);
     // var_dump($ideaLanguage);
     // var_dump($user);

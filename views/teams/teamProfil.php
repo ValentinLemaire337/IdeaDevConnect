@@ -1,10 +1,10 @@
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <h1 class="text-center mb-4">Profil de l'équipe</h1>
 
     <div class="card mb-4">
         <div class="card-body">
-            <h4 class="card-title"><?= $team->teams_name ?></h4>
-            <p class="card-text">Présentation de l'équipe : <?= $team->description  ?></p>
+            <h4 class="card-title"><?= $teaminfo->teams_name ?></h4>
+            <p class="card-text">Présentation de l'équipe : <?= $teaminfo->description  ?></p>
         </div>
     </div>
 
@@ -29,4 +29,11 @@
             </ul>
         </div>
     </div>
+    <div class="text-center mb-5">
+        <a href=""><button type="submit" class="btn btn-primary">Modifier l'équipe</button></a>
+    </div>
+    <div class="text-center mb-3">
+        <a href="/controllers/deleteUserCtrl.php?id=<?= $team->teams_id ?>" class="btn btn-danger">Supprimer l'équipe</a>
+    </div>
+
 </div>

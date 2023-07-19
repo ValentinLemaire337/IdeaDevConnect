@@ -14,6 +14,7 @@ try {
     $id = filter_var(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
 
     $user = User::get($id);
+    
 
 
 } catch (\Throwable $th) {

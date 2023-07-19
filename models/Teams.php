@@ -103,6 +103,15 @@ class Teams{
     //     return $sth->fetch();
     // }
 
+    public static function getTeam(int $id){
+        $db = Database::getInstance();
+        $sql = 'SELECT * FROM `teams` WHERE `teams_id` = :id;';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        $sth->execute();
+        return $sth->fetch();
+    }
+
     public static function get(int $id){
         $db = Database::getInstance();
         $sql = 'SELECT *
@@ -118,9 +127,22 @@ class Teams{
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();
-        return $sth->fetchAll();
+        return $sth->fetch();
     }
     
+    public static function getIdeaInTeam(int $id){
+        $db = Database::getInstance();
+        $sql = 'SELECT * 
+                FROM `ideas`
+                INNER JOIN `teams`
+                ON `ideas`.`teams_id` = `teams`.`teams_id`
+                WHERE `teams`.`teams_id` = :id;
+                ';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        $sth->execute();
+        return $sth->fetchAll();
+    }
     public static function getUsers(int $id){
         $db = Database::getInstance();
         $sql = 'SELECT *
