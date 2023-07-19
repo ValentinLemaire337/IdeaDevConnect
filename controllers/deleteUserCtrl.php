@@ -11,7 +11,7 @@ try {
 
     $deleteUser = User::delete($id);
     var_dump('delete ok');
-    header('location: /controllers/homeCtrl.php');
+    header('location: /controllers/logOutCtrl.php');
 } catch (\Throwable $th) {
     //throw $th;
 }

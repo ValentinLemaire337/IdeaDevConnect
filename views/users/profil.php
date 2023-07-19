@@ -13,16 +13,16 @@
                         <span class="badge bg-primary me-2">JavaScript</span>
                     </div>
                     <h5 class="card-subtitle mb-3">Équipes rejointes :</h5>
-                    <div class="d-flex flex-wrap mb-3">
+                    <div class="d-flex flex-wrap text-center mb-3">
                         <?php foreach ($userTeams as $userTeam ){?>
                         <a href="/controllers/teamProfilCtrl.php" class="btn btn-primary me-2"><?= $userTeam->teams_name?></a>
                         <?php } ?>
                     </div>
-                    <a href="/controllers/updateUserCtrl.php" class="btn btn-primary">Modifier les informations</a>
-                    <a href="/controllers/changePasswordCtrl.php" class="btn btn-primary">Modifier le mot de passe</a>
+                    <a href="/controllers/updateUserCtrl.php?id=<?=$_SESSION['user']->users_id?>" class="btn btn-primary">Modifier les informations</a>
+                    <a href="/controllers/changePasswordCtrl.php?id=<?=$_SESSION['user']->users_id?>" class="btn btn-primary">Modifier le mot de passe</a>
                 </div>
                 <div class="text-center mb-3">
-                    <a href="/controllers/deleteUserCtrl.php?id=<?=$userId->users_id?>" class="btn btn-danger">Supprimer mon compte</a>
+                    <a href="/controllers/deleteUserCtrl.php?id=<?=$_SESSION['user']->users_id?>" class="btn btn-danger">Supprimer mon compte</a>
                 </div>
             </div>
         </div>

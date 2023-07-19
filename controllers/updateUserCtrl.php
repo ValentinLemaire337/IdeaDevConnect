@@ -12,7 +12,7 @@ try {
     $error = 0;
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $id = filter_var(filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT));
+        $id = filter_var(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
         $firstname = trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $lastname = trim(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $mail = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
@@ -59,8 +59,8 @@ try {
             $updateUser->set_lastname($lastname);
             $updateUser->set_mail($mail);
             $response = $updateUser->update($id);
-            var_dump($response);
-            die;
+            // var_dump($response);
+            // die;
         }
 
     }
