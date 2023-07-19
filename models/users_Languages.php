@@ -26,7 +26,7 @@ class Users_Languages{
     // METHODES
 
     public function add(){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'INSERT INTO `prefer`(`users_id`, `languages_id`)
                 VALUES (:users_id, :languages_id);';
         $sth = $db->prepare($sql);
@@ -36,7 +36,7 @@ class Users_Languages{
     }
 
     public static function delete(int $users_id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'DELETE FROM `prefer` WHERE `users_id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':users_id', $users_id, PDO::PARAM_INT);

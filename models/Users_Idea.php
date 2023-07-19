@@ -1,5 +1,6 @@
 <?php 
 
+require_once __DIR__ . '/../helpers/connect.php';
 
 class Users_Idea{
 
@@ -27,17 +28,19 @@ class Users_Idea{
     // METHODES
 
     public function add(){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'INSERT INTO `users_ideas`(`users_id	`, `ideas_id`)
                 VALUES (:users_id, :ideas_id);';
         $sth = $db->prepare($sql);
         $sth->bindValue(':users_id', $this->users_id, PDO::PARAM_INT);
         $sth->bindValue(':ideas_id', $this->ideas_id, PDO::PARAM_INT);
+        // var_dump($sth->execute());
+        // die;
         return $sth->execute();
     }
 
     public static function delete(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'DELETE FROM `users_ideas` WHERE `users_id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);

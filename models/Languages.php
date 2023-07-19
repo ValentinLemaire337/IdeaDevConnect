@@ -27,7 +27,7 @@ class Languages{
     // METHODES
 
     public function add(){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'INSERT INTO `languages`(`nameLanguage`)
                 VALUES (:name);';
         $sth = $db->prepare($sql);
@@ -36,7 +36,7 @@ class Languages{
     }
 
     public static function getAll(){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT * FROM `languages`;';
         $sth = $db->query($sql);
         return $sth->fetchAll();

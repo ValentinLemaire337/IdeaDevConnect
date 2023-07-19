@@ -69,7 +69,7 @@ class Teams{
 
     public function add()
     {
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'INSERT INTO `teams` (`teams_name`,`description`, `created_at`)
             VALUES (:teamName, :description,  NOW());';
         $sth = $db->prepare($sql);
@@ -79,7 +79,7 @@ class Teams{
     }
 
     public function isNameExist(){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT `teamName` FROM `teams` WHERE `teamName` = :teamName;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':teamName', $this->teamName);
@@ -88,14 +88,14 @@ class Teams{
     }
 
     public static function getAll(){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT * FROM `teams`;';
         $sth = $db->query($sql);
         return $sth->fetchAll();
     }
 
     // public static function get(int $id):mixed{
-    //     $db = connect();
+    //     Database::getInstance();
     //     $sql = 'SELECT * FROM `teams` WHERE `id` = :id;';
     //     $sth = $db->prepare($sql);
     //     $sth->bindValue(':id', $id, PDO::PARAM_INT);
@@ -104,7 +104,7 @@ class Teams{
     // }
 
     public static function get(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT *
                 FROM `teams`
                 INNER JOIN `ideas`
@@ -122,7 +122,7 @@ class Teams{
     }
     
     public static function getUsers(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT *
                 FROM `users`
                 RIGHT JOIN `belong`
@@ -138,7 +138,7 @@ class Teams{
     }
 
     public function update(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'UPDATE `teams`
                 SET `teamName` = :teamName,
                 `updated_at` = NOW()
@@ -149,7 +149,7 @@ class Teams{
     }
 
     public static function delete(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'DELETE FROM `teams` WHERE `teams_id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);

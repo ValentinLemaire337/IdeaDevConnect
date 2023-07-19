@@ -26,7 +26,7 @@ class IdeasLanguages{
     // METHODES
 
     public function add(){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'INSERT INTO `developped`(`ideas_id`, `languages_id`)
                 VALUES (:ideas_id, :languages_id);';
         $sth = $db->prepare($sql);
@@ -36,7 +36,7 @@ class IdeasLanguages{
     }
 
     public function delete(int $ideas_id, int $languages_id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'DELETE FROM `developped` WHERE `ideas_id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $this->ideas_id, PDO::PARAM_INT);

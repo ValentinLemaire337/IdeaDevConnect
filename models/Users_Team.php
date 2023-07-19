@@ -26,7 +26,7 @@ class Users_Team{
     // METHODES
 
     public function add(){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'INSERT INTO `belong`(`users_id`,`teams_id`)
                 VALUES (:users_id, :teams_id);';
         $sth = $db->prepare($sql);
@@ -36,7 +36,7 @@ class Users_Team{
     }
 
     public static function delete(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'DELETE FROM `belong` WHERE `users_id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);

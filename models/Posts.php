@@ -57,7 +57,7 @@ class Posts{
     // METHODES
 
     public function add(){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'INSERT INTO `posts`(`post`, `created_at`)
                 VALUES (:post, NOW());';
         $sth = $db->prepare($sql);
@@ -66,7 +66,7 @@ class Posts{
     }
 
     public static function get(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT * FROM `posts` WHERE `id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
@@ -75,7 +75,7 @@ class Posts{
     }
 
     public static function getAll(){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT * FROM `posts`;';
         $sth = $db->query($sql);
         return $sth->fetchAll();
@@ -83,7 +83,7 @@ class Posts{
 
     
     public static function getAllById(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT *
                 FROM `posts`
                 WHERE `users_id` = :id;';
@@ -93,7 +93,7 @@ class Posts{
     }
 
     public function update(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'UPDATE `posts`
                 SET `post` = :post,
                 `updated_at` = NOW()
@@ -105,7 +105,7 @@ class Posts{
     }
 
     public function delete(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'DELETE FROM `teams` WHERE `posts_id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);

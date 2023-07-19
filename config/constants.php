@@ -47,5 +47,7 @@ define("MESSAGES", [
     'ERROR_UPDATE_MESSAGE_CONTENT' => 'Votre message contient des caractères non valide',
     'ERROR_UPDATE_MESSAGE_DB' => 'Erreur lors de la mise à jour de votre message en base de données',
     'ERROR_UPDATE_TEAMNAME' => 'Veuillez saisir un nom d\'équipe correct',
-    'ERROR_UPDATE_TEAM' => 'Erreur lors de la mise à jour de l\'équipe dans la base de données'
+    'ERROR_UPDATE_TEAM' => 'Erreur lors de la mise à jour de l\'équipe dans la base de données',
+    'ERROR_TEAM_DESC' => 'Veuillez rentrer une description d\'équipe',
+    'SUCCESS_ADD_TEAM' => 'Votre équipe a été créer'
 ]);

@@ -80,7 +80,7 @@ class Ideas{
     // METHODES
 
     public function add(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'INSERT INTO `ideas`(`name`,`description`, `created_at`, `users_id`)
                 VALUES (:name, :description, NOW(), :id);';
         $sth = $db->prepare($sql);
@@ -91,7 +91,7 @@ class Ideas{
     }
 
     // public static function get(int $id){
-    //     $db = connect();
+    //     Database::getInstance();
     //     $sql = 'SELECT * FROM `ideas` WHERE `ideas_id` = :id;';
     //     $sth = $db->prepare($sql);
     //     $sth->bindValue(':id', $id, PDO::PARAM_INT);
@@ -100,7 +100,7 @@ class Ideas{
     // }
 
     public static function get(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT * 
                 FROM `ideas`
                 LEFT JOIN `developped`
@@ -116,7 +116,7 @@ class Ideas{
     }
 
     public static function getAll(){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT *
                 FROM `ideas`;';
         $sth = $db->query($sql);
@@ -124,7 +124,7 @@ class Ideas{
     }
 
     public static function getAllById(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT *
                 FROM `ideas`
                 WHERE `users_id` = :id;';
@@ -137,7 +137,7 @@ class Ideas{
     // ajouter methode validated_at
 
     public function update(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'UPDATE `ideas`
                 SET `name` = :name,
                 `description` = :description,
@@ -153,7 +153,7 @@ class Ideas{
 
     // ajouter methode deleted_at
     public static function delete(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'DELETE FROM `ideas` WHERE `ideas_id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);

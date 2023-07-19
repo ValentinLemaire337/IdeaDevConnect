@@ -96,7 +96,7 @@ class User{
     // méthode d'ajout d'utilisateur dans la BDD        !!!! RESTE IMAGE A VOIR DANS UNE AUTRE METHODE !!!!
 
     public function add(){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'INSERT INTO `users` (`firstname`, `lastname`, `mail`, `password`, `role`, `created_at`)
         VALUES (:firstname, :lastname, :mail, :password, 1, NOW());';
         $sth = $db->prepare($sql);
@@ -112,7 +112,7 @@ class User{
 
     public static function isMailExist(string $mail)
     {
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT `mail` FROM `users` WHERE `mail`= :mail;';       //:mail = marqueur nom
         $sth = $db->prepare($sql);
         $sth->bindValue(':mail', $mail);
@@ -123,7 +123,7 @@ class User{
     // méthode pour afficher toutes les infos d'un seul user avec les idées qu'ils ont publiées et leurs messages
 
     public static function get(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT * FROM `posts`
                 RIGHT JOIN `users`
                 ON `posts`.`users_id` = `users`.`users_id`
@@ -140,7 +140,7 @@ class User{
     }
 
     public static function getId(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT * FROM `users` WHERE `users_id` = :id;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
@@ -151,7 +151,7 @@ class User{
     // méthode pour afficher les équipes que les utilisateurs ont rejoints
 
     public static function getTeam($id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT * FROM `users`
                 RIGHT JOIN `belong`
                 ON `users`.`users_id` = `belong`.`users_id`
@@ -168,7 +168,7 @@ class User{
     // méthode pour afficher les langages préférés d'un utilisateur
 
     public static function getLanguages(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT * 
                 FROM `languages`
                 RIGHT JOIN `prefer`
@@ -187,7 +187,7 @@ class User{
 
 
     public static function getByMail(string $mail){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT * FROM `users` WHERE `mail` = :email;';
         $sth = $db->prepare($sql);
         $sth->bindValue(':email', $mail, PDO::PARAM_STR);
@@ -198,7 +198,7 @@ class User{
     // méthode pour afficher tout les users
 
     public static function getAll(){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'SELECT *
                 FROM `users`;';
         $sth = $db->query($sql);
@@ -208,7 +208,7 @@ class User{
     //méthode pour update les infos users
 
     public function update(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'UPDATE `users`
                 SET `firstname` = :firstname,
                 `lastname` = :lastname,
@@ -225,7 +225,7 @@ class User{
 
     //méthode pour update le mot de passe users
     public function updatePassword(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'UPDATE `users`
                 SET `password` = :password
                 WHERE `users_id` = :id;';
@@ -239,7 +239,7 @@ class User{
     //méthode pour delete un utilisateur
 
     public static function delete(int $id){
-        $db = connect();
+        $db = Database::getInstance();
         $sql = 'DELETE FROM `users` WHERE `users_id` = :id;';     // + add date de delete
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
@@ -249,7 +249,7 @@ class User{
     //méthode static pour update le validated_at dans la BDD    !!!! LORS DE LA RECEPTION DE LA VALIDATION USER !!!
 
     // public static function validate(){
-    //     $db = connect();
+    //     $db = Database::getInstance();
     //     $sql = 'UPDATE `users` SET `validated_at` = NOW() WHERE `users`.`email` = :email AND `validated_at` IS NULL;';
     //     $sth = $db->prepare($sql);
     //     $sth->bindValue(':email', $email, PDO::PARAM_STR);
