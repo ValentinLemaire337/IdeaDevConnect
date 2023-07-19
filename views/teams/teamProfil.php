@@ -3,8 +3,8 @@
 
     <div class="card mb-4">
         <div class="card-body">
-            <h4 class="card-title">Nom de l'équipe</h4>
-            <p class="card-text">Description de l'équipe : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit vel tortor blandit fringilla. Mauris a metus aliquam, ullamcorper ipsum eget, fermentum justo.</p>
+            <h4 class="card-title"><?= $team->teams_name ?></h4>
+            <p class="card-text">Présentation de l'équipe : <?= $team->description  ?></p>
         </div>
     </div>
 
@@ -19,8 +19,8 @@
         </div>
     </div>
 
-    <div class="card">
-        <div class="card-body">
+    <div class="card mb-5">
+        <div class="card-body mb-5">
             <h4 class="card-title">Membres de l'équipe</h4>
             <ul class="list-group">
                 <li class="list-group-item">Membre 1</li>

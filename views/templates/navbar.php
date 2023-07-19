@@ -22,11 +22,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/forumCtrl.php">Forum</a>
                 </li>
-                <?php if(!isset($_SESSION['user'])){ ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="/controllers/teamListCtrl.php">Les équipes</a>
-                </li>
-                <?php } ?>
                 <?php if(isset($_SESSION['user'])){ ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/profilCtrl.php?id=<?=$_SESSION['user']->users_id?>">Profil</a>

@@ -14,7 +14,8 @@
 
             // utilisation de password_verify($password, $passwordHash);
             $getUser = User::getByMail($mail);
-            var_dump($getUser);
+            // var_dump($getUser);
+            // die;
             var_dump($password);
 
             $passwordHashed = $getUser->password;
@@ -36,6 +37,8 @@
 
             if($error == 0){
                 $_SESSION['user'] = $getUser;
+                // var_dump($_SESSION['user']);
+                // die;
                 header('location: /controllers/forumCtrl.php');
             }
         }

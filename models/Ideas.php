@@ -54,7 +54,7 @@ class Ideas{
     public function set_name(string $name){
         $this->name = $name;
     }
-    public function set_description(int $description){
+    public function set_description(string $description){
         $this->description = $description;
     }
     public function set_created_at(string $created_at){
@@ -81,13 +81,15 @@ class Ideas{
 
     public function add(int $id){
         $db = Database::getInstance();
-        $sql = 'INSERT INTO `ideas`(`name`,`description`, `created_at`, `users_id`)
-                VALUES (:name, :description, NOW(), :id);';
+        $sql = 'INSERT INTO `ideas`(`name`,`description`, `users_id`)
+                VALUES (:name, :description, :id);';
         $sth = $db->prepare($sql);
         $sth->bindValue(':name', $this->name);
         $sth->bindValue(':description', $this->description);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
-        return $sth->execute();
+        if($sth->execute()){
+            return ($sth->rowCount() > 0) ? true : false;
+        }
     }
 
     // public static function get(int $id){

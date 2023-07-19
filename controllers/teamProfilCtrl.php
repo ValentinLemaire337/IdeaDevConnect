@@ -8,9 +8,9 @@ SessionFlash::start();
 
 try {
     
-    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-        $teams = Teams::get($id);
-        // var_dump($teams);
+    $id = $_SESSION['user']->users_id;
+        $team = Teams::get($id);
+        var_dump($teams);
         // die;
 } catch (\Throwable $th) {
     //throw $th;

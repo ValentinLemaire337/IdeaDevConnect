@@ -29,8 +29,7 @@ class Users_Idea{
 
     public function add(){
         $db = Database::getInstance();
-        $sql = 'INSERT INTO `users_ideas`(`users_id	`, `ideas_id`)
-                VALUES (:users_id, :ideas_id);';
+        $sql = 'INSERT INTO `users_ideas` (`users_id`, `ideas_id`) VALUES (:users_id, :ideas_id);';
         $sth = $db->prepare($sql);
         $sth->bindValue(':users_id', $this->users_id, PDO::PARAM_INT);
         $sth->bindValue(':ideas_id', $this->ideas_id, PDO::PARAM_INT);

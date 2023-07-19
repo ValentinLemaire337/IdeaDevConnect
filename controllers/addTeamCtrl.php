@@ -53,7 +53,7 @@ try {
             // var_dump('oui');
 
             $lastId = $db->lastInsertId();
-            var_dump($lastId);
+            // var_dump($lastId);
 
             $teamOwner = new Users_Team;
             $teamOwner->set_users_id($id);
