@@ -13,12 +13,15 @@ SessionFlash::start();
 // var_dump('test');
 try {
 
-    $id = filter_var(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+    $id = $_SESSION['user']->users_id;
+    // var_dump($id);
 
     $user = User::get($id);
+    // var_dump($user);
     $userTeams = User::getTeam($id);
     $userId = User::getId($id);
-    // var_dump($userId);
+    $userIdeas = User::getAllIdea($id);
+    var_dump($userIdeas);
     // $ideaLanguage = Ideas::get($id);
     // var_dump($ideaLanguage);
     // var_dump($user);

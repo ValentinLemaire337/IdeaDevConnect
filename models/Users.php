@@ -139,6 +139,18 @@ class User{
         return $sth->fetch();
     }
 
+    public static function getAllIdea(int $id){
+        $db = Database::getInstance();
+        $sql = 'SELECT * FROM `ideas`
+                INNER JOIN `users`
+                ON `ideas`.`users_id` = `users`.`users_id`
+                WHERE `users`.`users_id` = :id ;';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        $sth->execute();
+        return $sth->fetchAll();
+    }
+
     public static function getId(int $id){
         $db = Database::getInstance();
         $sql = 'SELECT * FROM `users` WHERE `users_id` = :id;';

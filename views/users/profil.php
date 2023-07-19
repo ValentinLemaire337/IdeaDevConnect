@@ -30,18 +30,13 @@
             <div class="card-body">
                 <h5 class="card-title">Liste de vos projets publiés</h5>
                 <ul class="list-group d-flex justify-content-between">
+                    <?php foreach ($userIdeas as $userIdea) { ?>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <p>Nom du projet</p>
+                        <p><?= $userIdea->name ?></p>
                         <a href="/controllers/forum/projectCtrl.php" class="btn btn-primary">Accèder au projet</a>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <p>Nom du projet</p>
-                        <a href="/controllers/forum/projectCtrl.php" class="btn btn-primary">Accèder au projet</a>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <p>Nom du projet</p>
-                        <a href="/controllers/forum/projectCtrl.php" class="btn btn-primary">Accèder au projet</a>
-                    </li>
+                    <?php } ?>
+
                 </ul>
 
             </div>
