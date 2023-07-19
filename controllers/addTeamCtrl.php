@@ -44,6 +44,7 @@ try {
 
         if ($error == 0) {
             $db = Database::getInstance();
+            $db->beginTransaction();
             $newTeam = new Teams;
             $newTeam->set_teamName($teamName);
             $newTeam->set_description($description);
