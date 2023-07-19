@@ -13,28 +13,36 @@ try {
         $newPassword = $_POST['newPassword'];
         $confirmPassword = $_POST['confirmPassword'];
 
+        var_dump($newPassword);
+        var_dump($confirmPassword);
+
         $getUser = User::get($id);
 
         $passwordHashed = $getUser->password;
         $passwordVerified = password_verify($oldPassword, $passwordHashed);
+        var_dump($passwordVerified);
+        var_dump($passwordHashed);
+        
 
         if (!$passwordVerified) {
             $error = 1;
             $errorPassword = MESSAGES['ERROR_MESSAGE_PASSWORD'];
         } else {
             if ($newPassword == $confirmPassword) {
-                $newPassword = filter_input(INPUT_POST, 'password', FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_PWD . '/')));
+                $newPassword = filter_input(INPUT_POST, 'newPassword', FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_PWD . '/')));
+                var_dump($newPassword);
+                // die;
                 if ($newPassword) {
                     $passwordHashed = password_hash($newPassword, PASSWORD_DEFAULT);
-                    var_dump($passwordHashed);
+                    // var_dump($passwordHashed);
                 } else {
                     $errorPassword = MESSAGES['ERROR_MESSAGE_PASSWORD'];
                     $error = 1;
-                    var_dump('a');
+                    // var_dump('a');
                 }
             } else {
                 $errorPassword = MESSAGES['ERROR_MESSAGE_PASSWORD'];
-                var_dump('pb mdp');
+                // var_dump('pb mdp');
                 $error = 1;
             }
         }
