@@ -30,10 +30,10 @@
         </div>
     </div>
     <div class="text-center mb-5">
-        <a href=""><button type="submit" class="btn btn-primary">Modifier l'équipe</button></a>
+        <a href="/controllers/forum/updateTeamCtrl.php?id=<?= $teaminfo->teams_id ?>"><button type="submit" class="btn btn-primary">Modifier l'équipe</button></a>
     </div>
     <div class="text-center mb-3">
-        <a href="/controllers/deleteUserCtrl.php?id=<?= $team->teams_id ?>" class="btn btn-danger">Supprimer l'équipe</a>
+        <a href="/controllers/deleteUserCtrl.php?id=<?= $teaminfo->teams_id ?>" class="btn btn-danger">Supprimer l'équipe</a>
     </div>
 
 </div>

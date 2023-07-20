@@ -49,5 +49,6 @@ define("MESSAGES", [
     'ERROR_UPDATE_TEAMNAME' => 'Veuillez saisir un nom d\'équipe correct',
     'ERROR_UPDATE_TEAM' => 'Erreur lors de la mise à jour de l\'équipe dans la base de données',
     'ERROR_TEAM_DESC' => 'Veuillez rentrer une description d\'équipe',
-    'SUCCESS_ADD_TEAM' => 'Votre équipe a été créer'
+    'SUCCESS_ADD_TEAM' => 'Votre équipe a été créer',
+    'ERROR_TEAM_UPDATE_DESCRIPTION' => 'Votre description d\'équipe contient des caractères invalide'
 ]);

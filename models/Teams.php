@@ -9,8 +9,8 @@ class Teams{
     private string $description;
     private string $created_at;
     private string $validated_at;
-    private string $updated_at;
-    private string $deleted_at;
+    // private string $updated_at;
+    // private string $deleted_at;
 
 
     // GETTER
@@ -30,12 +30,12 @@ class Teams{
     public function get_validated_at(){
         return $this->validated_at;
     }
-    public function get_updated_at(){
-        return $this->updated_at;
-    }
-    public function get_deleted_at(){
-        return $this->deleted_at;
-    }
+    // public function get_updated_at(){
+    //     return $this->updated_at;
+    // }
+    // public function get_deleted_at(){
+    //     return $this->deleted_at;
+    // }
 
 
     // SETTER
@@ -55,12 +55,12 @@ class Teams{
     public function set_validated_at(string $validated_at){
         $this->validated_at = $validated_at;
     }
-    public function set_updated_at(string $updated_at){
-        $this->updated_at = $updated_at;
-    }
-    public function set_deleted_at(string $deleted_at){
-        $this->deleted_at = $deleted_at;
-    }
+    // public function set_updated_at(string $updated_at){
+    //     $this->updated_at = $updated_at;
+    // }
+    // public function set_deleted_at(string $deleted_at){
+    //     $this->deleted_at = $deleted_at;
+    // }
 
 
     // METHODES
@@ -162,10 +162,12 @@ class Teams{
     public function update(int $id){
         $db = Database::getInstance();
         $sql = 'UPDATE `teams`
-                SET `teamName` = :teamName,
-                `updated_at` = NOW()
-                WHERE = `id` = :id;';
+                SET `teams_name` = :teamName,
+                `description` = :description
+                WHERE `teams_id` = :id';
         $sth = $db->prepare($sql);
+        $sth->bindValue(':teamName', $this->teamName);
+        $sth->bindValue(':description', $this->description);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();
     }

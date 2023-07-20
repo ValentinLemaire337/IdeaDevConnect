@@ -8,7 +8,7 @@ require_once __DIR__ . '/../models/Users.php';
 SessionFlash::start();
 
 try {
-    $idTeam = filter_var(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+    $idTeam = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
     $id = $_SESSION['user']->users_id;
         $teaminfo = Teams::getTeam($idTeam);
         // var_dump($teaminfo);
