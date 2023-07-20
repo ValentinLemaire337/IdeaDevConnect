@@ -8,7 +8,7 @@
         <img src="" alt="">image
         <div>
             <div class="row justify-content-end mb-5 ">
-                <div class="col-6 bg-white rounded-start-4 ">
+                <div class="col-8 bg-white rounded-start-4 ">
                     <h1 class="text-center">Qui sommes-nous ?</h1>
                     <p>Le but de ce site est de vous permettre de proposer ou de contribuer à des projets selon vos compétences.</p>
                     <p>Inscrivez-vous, visitez notre forum et postulez sur une offre ou créez la votre pour commencer à recevoir des demandes d'autres membres pour rejoindre votre projet !</p>
