@@ -12,7 +12,7 @@
                     <textarea name="teamDescription" class="form-control" id="teamDescription" placeholder="Entrez la description de l'équipe" required></textarea>
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Créer l'équipe</button>
+                    <button type="submit" class="btn btn-info text-white">Créer l'équipe</button>
                 </div>
             </form>
         </div>
