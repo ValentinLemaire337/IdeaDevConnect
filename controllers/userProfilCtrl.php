@@ -11,7 +11,7 @@ SessionFlash::start();
 
 
 try {
-    $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+    $id = $_SESSION['user']->users_id;
 
     $user = User::get($id);
     

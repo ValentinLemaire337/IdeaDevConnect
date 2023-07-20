@@ -12,15 +12,14 @@
 
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                     <?php foreach ($ideas as $idea) {
-                        # code...
                     ?>
                         <div class="col">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title"><?= htmlentities($idea->name) ?></h5>
+                                    <h5 class="card-title"><?= $idea->name ?></h5>
                                     <p>Auteur</p>
-                                    <p class="card-text"><?= htmlentities($idea->description) ?></p>
-                                    <a href="/controllers/forum/projectCtrl.php?id=<?=htmlentities($idea->ideas_id)?>" class="btn btn-primary">Voir le Projet</a>
+                                    <p class="card-text"><?= $idea->description ?></p>
+                                    <a href="/controllers/forum/projectCtrl.php?id=<?=$idea->ideas_id?>" class="btn btn-primary">Voir le Projet</a>
                                 </div>
                             </div>
                         </div>

@@ -17,8 +17,8 @@ try {
 
 
 
-    $idea = Ideas::get($id);
-    var_dump($idea);
+    $ideas = Ideas::getIdea($id);
+    // var_dump($ideas);
 } catch (\Throwable $th) {
     //throw $th;
 }

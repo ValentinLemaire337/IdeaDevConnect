@@ -3,8 +3,8 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title"><?= $idea->name ?></h4>
-                    <p class="card-text">Description du projet : <?= $idea->description ?></p>
+                    <h4 class="card-title"><?= $ideas->name ?></h4>
+                    <p class="card-text">Description du projet : <?= $ideas->description ?></p>
                     <p class="card-text">Langages utilisés :</p>
                     <div class="d-flex flex-wrap mb-3">
                         <span class="badge bg-primary me-2">HTML</span>
