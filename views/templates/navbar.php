@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary ">
     <div class="container-fluid">
         <a class="navbar-brand" href="/controllers/homeCtrl.php">
             <img class="logo" src="/public/assets/img/IDClogo.png" alt="logo IdeaDevConnect">
