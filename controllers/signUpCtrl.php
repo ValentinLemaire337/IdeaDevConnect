@@ -12,8 +12,10 @@ try {
     $error = 0;
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        // nettoyage et vérification lastname 
-        $lastname = trim(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES));
+        // nettoyage lastname 
+        $lastname = trim(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES));
+
+
         // var_dump($lastname);
         if (empty($lastname)) {
             $errorNoLastname = MESSAGES['ERROR_MESSAGE_LASTNAME'];
