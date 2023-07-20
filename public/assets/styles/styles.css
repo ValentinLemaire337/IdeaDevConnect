@@ -1,3 +1,10 @@
+*{
+    box-sizing: border-box;
+    /* border: solid 1px; */
+}
+html{
+    height: 100vh;
+}
 body{
     margin: 0;
     padding: 0;
@@ -5,22 +12,86 @@ body{
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
+    width: 100%;
+    background-color: #CBCCFF;
 }
 
 .logo{
-    height: 60px;
-    width: 120px;
+    height: 120px;
+    width: auto;
+}
+
+.card{
+    margin-top: 20px;
+}
+
+.homeText{
+    font-size: 20px ;
+}
+
+nav a{
+    font-size: 1.75rem !important;
+    font-weight: bold !important;
+}
+
+h1, h2, h3{
+    font-style: 'Merriweather', serif;
+    font-weight: bold;
+}
+
+.homeDiv{
+    margin-bottom: 16px !important;
+}
+.homeText h1{
+    margin-bottom: 16px;
+}
+
+.divforum {
+    border: solid 1px !important;
+    background-color: #F3F3F3;
+}
+
+.spanBtn{
+    background-color: #F3F3F3;
+}
+.divSpan{
+    width: 20%;
+}
+.btn{
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.403);
+
+}
+
+
+
+
+.img-banner{
+    height: 100%;
+    border-radius: 20px;
+    padding: 12px;
 }
 
 .banner{
-    min-height: 100vh;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
-.footer {
+.homePage{
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
+    height: 100%;
+    background-color: black ;
 }
 
+footer a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.50rem !important ;
+    font-weight: bold;
+}

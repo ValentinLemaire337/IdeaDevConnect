@@ -46,4 +46,4 @@
         </div>
     </div>
 </nav>
-<main class="mb-5">
+<main>

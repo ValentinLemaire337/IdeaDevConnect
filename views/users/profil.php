@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-center mt-5 divforum">
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body text-center">
