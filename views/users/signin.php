@@ -1,4 +1,4 @@
-<main>
+
     <div class="container">
         <div class="row">
             <p>Connectez-vous :</p>
@@ -20,4 +20,3 @@
             </div>
         </div>
     </div>
-</main>

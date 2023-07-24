@@ -1,6 +1,20 @@
-<main>
-    <div class="container">
-        <div class="row col-6">
+
+    <div class="container-fluid row d-flex">
+        <div class="col-6 justify-content-center align-middle divSignup">
+            <h1 class="titleSignup">Pourquoi s'inscrire ?</h1>
+            <p>C'est très simple !</p>
+            <p>
+                Votre inscription est le moyen idéal sur ce site pour commencer à s'investir d'avantage
+                dans votre apprentissage !
+            </p>
+            <p>
+                Venez découvrir les projets, y participer ou tout simplement discuter !
+            </p>
+            <p>
+                En plus, ce ne vous prendra que quelques secondes !
+            </p>
+        </div>
+        <div class="col-6">
             <p>Inscrivez-vous :</p>
             <form method="post">
                 <div class="mb-3">
@@ -32,11 +46,10 @@
                 </div>
                 <button type="submit" class="btn btn-light">Valider</button>
             </form>
-            <p>Vous avez déjà un compte ? Connectez vous <a href="/controllers/signInCtrl.php">ici</a></p>
+            <p class="mb-3">Vous avez déjà un compte ? Connectez vous <a href="/controllers/signInCtrl.php">ici</a></p>
         </div>
         <div class="row col-6">
 
         </div>
     </div>
     </div>
-</main>

@@ -11,12 +11,14 @@ SessionFlash::start();
 try {
     $error = 0;
 
+
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
         $firstname = trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $lastname = trim(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $mail = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
 
+        // $userInfo = User::get($id);
 
         if(empty($firstname)){
             $errorUpdateFirstname = MESSAGES['ERROR_MESSAGE_FIRSTNAME'];

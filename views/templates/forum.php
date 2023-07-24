@@ -1,4 +1,4 @@
-<main>
+
     <div class="container-fluid rounded col-10 mx-auto p-2 m-2 divforum">
         <div class="row m-2">
             <h1 class="text-center">Liste des projets</h1>
@@ -7,8 +7,7 @@
                     <input type="text" class="form-control" placeholder="mots-clefs, sujet, nom du projet,..." aria-label="Username" aria-describedby="basic-addon1">
                     <span class="input-group-text" id="basic-addon1">Rechercher</span>
                 </div>
-                <main class="container py-4">
-                    <h1 class="mb-4">Liste des Projets</h1>
+                <div class="container py-4">
 
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                     <?php foreach ($ideas as $idea) {
@@ -19,14 +18,14 @@
                                     <h5 class="card-title"><?= $idea->name ?></h5>
                                     <p>Auteur</p>
                                     <p class="card-text"><?= $idea->description ?></p>
-                                    <a href="/controllers/forum/projectCtrl.php?id=<?=$idea->ideas_id?>" class="btn btn-primary">Voir le Projet</a>
+                                    <a href="/controllers/forum/projectCtrl.php?id=<?=$idea->ideas_id?>" class="btn btn-outline-primary btn-info text-white">Voir le Projet</a>
                                 </div>
                             </div>
                         </div>
 
                         <?php } ?>
                     </div>
-                </main>
+                </div>
                 <div class="input-group  mx-auto d-flex justify-content-center divSpan">
                     <span class="mt-3 mx-2 spanBtn" id="basic-addon1">
                         <a <?php if(isset($_SESSION['user'])){ ?>
@@ -50,4 +49,3 @@
             </div>
         </div>
     </div>
-</main>

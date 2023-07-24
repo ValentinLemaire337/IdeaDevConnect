@@ -1,5 +1,5 @@
 <!-- page accueil -->
-
+</main>
 <div class="container-fluid d-flex align-items-center endPage">
     <div class=" bg-secondary banner">
         <img class="img-banner" src="/public/assets/img/img-banner1.jpg" alt="image de banière">
