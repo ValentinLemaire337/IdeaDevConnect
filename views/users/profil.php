@@ -33,7 +33,7 @@
                     <?php foreach ($userIdeas as $userIdea) { ?>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <p><?= $userIdea->name ?></p>
-                        <a href="/controllers/forum/projectCtrl.php" class="btn btn-primary">Accèder au projet</a>
+                        <a href="/controllers/forum/projectCtrl.php?=<?=$userIdea->ideas_id?>" class="btn btn-primary">Accèder au projet</a>
                     </li>
                     <?php } ?>
 

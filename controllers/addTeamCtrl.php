@@ -14,19 +14,19 @@ try {
         $teamName = trim(filter_input(INPUT_POST, 'teamName', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $description = trim(filter_input(INPUT_POST, 'teamDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $id = $_SESSION['user']->users_id;
-        var_dump($teamName);
-        var_dump($description);
+        // var_dump($teamName);
+        // var_dump($description);
 
         if (empty($teamName)) {
             $errorTeamName = MESSAGES['ERROR_TEAM_NAME'];
-            var_dump('nom vide');
+            // var_dump('nom vide');
             $error = 1;
         } else {
             $isOk = filter_var($teamName, FILTER_DEFAULT);
             if (!$isOk) {
                 $errorTeamName = MESSAGES['ERROR_TEAM_NAME'];
                 $error = 1;
-                var_dump('nom incorrect');
+                // var_dump('nom incorrect');
             }
         }
 
@@ -40,7 +40,7 @@ try {
                 $error = 1;
             }
         }
-        var_dump($error);
+        // var_dump($error);
 
         if ($error == 0) {
             $db = Database::getInstance();
@@ -49,7 +49,7 @@ try {
             $newTeam->set_teamName($teamName);
             $newTeam->set_description($description);
             $response = $newTeam->add();
-            var_dump($response);
+            // var_dump($response);
             // var_dump('oui');
 
             $lastId = $db->lastInsertId();

@@ -19,7 +19,7 @@ try {
         // var_dump($lastname);
         if (empty($lastname)) {
             $errorNoLastname = MESSAGES['ERROR_MESSAGE_LASTNAME'];
-            var_dump('pas de lastname');
+            // var_dump('pas de lastname');
             $error = 1;
         } else {
             $isOk = filter_var($lastname, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_NAME . '/')));
@@ -33,7 +33,7 @@ try {
         $firstname = trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES));
         // var_dump($firstname);
         if (empty($firstname)) {
-            var_dump('pas de firstname');
+            // var_dump('pas de firstname');
             $error = 1;
         } else {
             $isOk = filter_var($firstname, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_NAME . '/')));
@@ -47,7 +47,7 @@ try {
         // var_dump($mail);
         //**** VERIFICATION ****/
         if (empty($mail)) {
-            var_dump('pas de mail');
+            // var_dump('pas de mail');
         } else {
             $isOk = filter_var($mail, FILTER_VALIDATE_EMAIL);
             if (!$isOk) {
@@ -55,7 +55,7 @@ try {
                 $error = 1;
             }
             if (User::isMailExist($mail)) {
-                var_dump('le mail existe');
+                // var_dump('le mail existe');
                 $error = 1;
             }
         }
@@ -68,22 +68,22 @@ try {
 
         if ($password == $password1) {
             $password = filter_input(INPUT_POST, 'password', FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_PWD . '/')));
-            var_dump($password);
+            // var_dump($password);
             if ($password) {
                 $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
-                var_dump($passwordHashed);
+                // var_dump($passwordHashed);
             } else {
                 $errorPassword = MESSAGES['ERROR_MESSAGE_PASSWORD'];
                 $error = 1;
-                var_dump('a');
+                // var_dump('a');
             }
         } else {
             $errorPassword = MESSAGES['ERROR_MESSAGE_PASSWORD'];
-            var_dump('pb mdp');
+            // var_dump('pb mdp');
             $error = 1;
         }
 
-        var_dump($error);
+        // var_dump($error);
         // si 0 erreurs
         if ($error == 0) {
             $user = new User;
@@ -95,14 +95,14 @@ try {
             if ($response) {
                 // message réussite user ajouté
                 $successAdd = MESSAGES['SUCCESS_MESSAGE_USER'];
-                header('location: /controllers/homeCtrl.php');
+                header('location: /controllers/signInCtrl.php');
             }
         } else {
             $errorMsg = MESSAGES['ERROR_MESSAGE_ACCOUNT'];
         }
     }
 } catch (\Throwable $th) {
-    //throw $th;
+    throw $th;
 }
 
 include __DIR__ . '/../views/templates/header.php';

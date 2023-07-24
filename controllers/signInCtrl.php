@@ -16,13 +16,13 @@
             $getUser = User::getByMail($mail);
             // var_dump($getUser);
             // die;
-            var_dump($password);
+            // var_dump($password);
 
             $passwordHashed = $getUser->password;
-            var_dump($passwordHashed);
+            // var_dump($passwordHashed);
 
             $passwordVerified = password_verify($password, $passwordHashed);
-            var_dump($passwordVerified);
+            // var_dump($passwordVerified);
 
             if(!$passwordVerified){
                 $error = 1;
@@ -31,7 +31,7 @@
             if(!$getUser){
                 $errorMail = MESSAGES['ERROR_MESSAGE_MAIL'];
                 $error = 1;
-                var_dump('pas de mail valide');
+                // var_dump('pas de mail valide');
                 die;
             }
 

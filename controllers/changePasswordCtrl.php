@@ -13,15 +13,15 @@ try {
         $newPassword = $_POST['newPassword'];
         $confirmPassword = $_POST['confirmPassword'];
 
-        var_dump($newPassword);
-        var_dump($confirmPassword);
+        // var_dump($newPassword);
+        // var_dump($confirmPassword);
 
         $getUser = User::get($id);
 
         $passwordHashed = $getUser->password;
         $passwordVerified = password_verify($oldPassword, $passwordHashed);
-        var_dump($passwordVerified);
-        var_dump($passwordHashed);
+        // var_dump($passwordVerified);
+        // var_dump($passwordHashed);
         
 
         if (!$passwordVerified) {
@@ -30,7 +30,7 @@ try {
         } else {
             if ($newPassword == $confirmPassword) {
                 $newPassword = filter_input(INPUT_POST, 'newPassword', FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_PWD . '/')));
-                var_dump($newPassword);
+                // var_dump($newPassword);
                 // die;
                 if ($newPassword) {
                     $passwordHashed = password_hash($newPassword, PASSWORD_DEFAULT);

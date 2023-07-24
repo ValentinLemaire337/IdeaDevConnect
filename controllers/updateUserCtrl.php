@@ -51,7 +51,7 @@ try {
             }
         }
 
-        var_dump($error);
+        // var_dump($error);
         // die;
         if($error == 0){
             $updateUser = new User;

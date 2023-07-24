@@ -21,8 +21,8 @@ try {
         $name = trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $projectDesc = trim(filter_input(INPUT_POST, 'projectDesc', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $projectLanguages = trim(filter_input(INPUT_POST, 'languages', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        var_dump($name);
-        var_dump($projectDesc);
+        // var_dump($name);
+        // var_dump($projectDesc);
         // $languages = trim(filter_input(INPUT_POST, '', FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_ARRAY));
 
         // ajout des informations du projet en BDD
@@ -56,21 +56,21 @@ try {
         // Selection des langages du projet
 
 
-        var_dump($error);
+        // var_dump($error);
         if($error == 0){
             $db = Database::getInstance();
             $db->beginTransaction();
-            var_dump('oui');
+            // var_dump('oui');
             $newProject = new Ideas;
             $newProject->set_name($name);
             $newProject->set_description($projectDesc);
             $newProject->set_users_id($id);
             $response = $newProject->add($id);
-            var_dump($response);
+            // var_dump($response);
             // die;
 
             $lastId = $db->lastInsertId();
-            var_dump($lastId);
+            // var_dump($lastId);
 
             $userProject = new Users_Idea;
             $userProject->set_users_id($id);

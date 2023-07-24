@@ -95,7 +95,7 @@ class User{
 
     // méthode d'ajout d'utilisateur dans la BDD        !!!! RESTE IMAGE A VOIR DANS UNE AUTRE METHODE !!!!
 
-    public function add(){
+    public function add() : bool{
         $db = Database::getInstance();
         $sql = 'INSERT INTO `users` (`firstname`, `lastname`, `mail`, `password`, `role`, `created_at`)
         VALUES (:firstname, :lastname, :mail, :password, 1, NOW());';

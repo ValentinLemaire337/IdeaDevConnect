@@ -9,7 +9,7 @@ try {
     $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
 
     $deleteTeam = Teams::delete($id);
-    var_dump('delete ok');
+    // var_dump('delete ok');
     header('location: /controllers/profilCtrl.php');
 } catch (\Throwable $th) {
     throw $th;

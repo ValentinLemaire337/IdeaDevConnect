@@ -103,12 +103,11 @@ class Ideas{
 
     public static function get(int $id){
         $db = Database::getInstance();
-        $sql = 'SELECT * 
-                FROM `ideas`
-                LEFT JOIN `developped`
-                ON `ideas`.`ideas_id` = `developped`.`ideas_id`
-                INNER JOIN `languages`
-                ON `developped`.`languages_id` = `languages`.`languages_id`
+        $sql = 'SELECT * FROM `ideas` 
+                RIGHT JOIN `users_ideas` 
+                ON `ideas`.`ideas_id` = `users_ideas`.`ideas_id` 
+                LEFT JOIN `users` 
+                ON `users_ideas`.`users_id` = `users`.`users_id` 
                 WHERE `ideas`.`ideas_id` = :id;
                 ';
         $sth = $db->prepare($sql);

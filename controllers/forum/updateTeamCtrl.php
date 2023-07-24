@@ -16,7 +16,7 @@ try {
         if (empty($name)) {
             $error = 1;
             $errorUpdateName = MESSAGES['ERROR_UPDATE_TEAMNAME'];
-            var_dump('non valide');
+            // var_dump('non valide');
         } else {
             $isOk = filter_var($name, FILTER_DEFAULT);
             if (!$isOk) {

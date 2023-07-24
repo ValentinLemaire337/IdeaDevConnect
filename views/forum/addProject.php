@@ -13,16 +13,16 @@
                     <textarea name="projectDesc" class="form-control" aria-label="With textarea" required></textarea>
                 </div>
 
-                <p>Langages que vous souhaitez utiliser :</p>
-                <div class="btn-group mb-3" role="group" aria-label="Basic checkbox toggle button group">
+                <!-- <p>Langages que vous souhaitez utiliser :</p> -->
+                <!-- <div class="btn-group mb-3" role="group" aria-label="Basic checkbox toggle button group"> -->
                     <!-- foreach pour chaque langage -->
-                    <select name="languages" id="languages">
+                    <!-- <select name="languages" id="languages"> -->
                         <?php
-                        foreach ($languages as $language) {
+                        //foreach ($languages as $language) {
                         ?>
-                            <option value="<?= $language->nameLanguage  ?>"><?= $language->nameLanguage ?></option>
+                            <!-- <option value="<?php //$language->nameLanguage  ?>"><?php // $language->nameLanguage ?></option> -->
                         <?php
-                        }
+                        //}
                         ?>
                     </select>
                 </div>
