@@ -51,7 +51,6 @@
                             <a href="#!" class="text-white">F.A.Q.</a>
                         </h6>
                     </div>
-                    <!-- Grid column -->
 
                     <!-- Grid column -->
                     <div class="col-md-2">
@@ -59,15 +58,6 @@
                             <a href="#!" class="text-white">CGU</a>
                         </h6>
                     </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-2">
-                        <h6 class="text-uppercase font-weight-bold">
-                            <a href="#!" class="text-white">Help</a>
-                        </h6>
-                    </div>
-                    <!-- Grid column -->
 
                     <!-- Grid column -->
                     <div class="col-md-2">
@@ -88,10 +78,7 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-                            distinctio earum repellat quaerat voluptatibus placeat nam,
-                            commodi optio pariatur est quia magnam eum harum corrupti
-                            dicta, aliquam sequi voluptate quas.
+                            N'hésitez pas à parler de nous autour de vous ou de nous contacter !
                         </p>
                     </div>
                 </div>
