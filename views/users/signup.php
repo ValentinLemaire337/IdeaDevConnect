@@ -16,7 +16,7 @@
         </div>
         <div class="col-6">
             <p>Inscrivez-vous :</p>
-            <form method="post">
+            <form method="post" id="signupForm">
                 <div class="mb-3">
                     <label for="firstname" class="form-label">Nom :</label>
                     <input type="text" class="form-control" id="firstname" name="firstname" required>
